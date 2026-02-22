@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://gold-price.app/sitemap.xml
