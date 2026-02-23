@@ -1,4 +1,4 @@
-// Metal Prices App - Single Metal View
+// Metal Prices App - Gold Price Focus
 const TROY_OZ_TO_GRAM = 31.1035;
 const TROY_OZ_TO_KG = 0.0311035;
 const OZ_PER_KG = 32.1507;
@@ -7,99 +7,61 @@ const OZ_PER_KG = 32.1507;
 const i18n = {
     en: {
         gold: 'Gold', silver: 'Silver', platinum: 'Platinum', palladium: 'Palladium',
-        calculator: 'Calculator', westernSpot: 'Western Spot', premium: 'Premium',
-        shanghaiSilver: 'Shanghai Silver (Ag T+D)', indiaMcx: 'India MCX Silver',
-        intlSpot: 'International Spot', mcxPrice: 'MCX Price', includesDuty: 'includes 7.5% duty + 3% GST',
-        status: 'Status', duty: 'Duty', updated: 'Updated every 60s • Data for informational purposes'
-    },
-    hi: {
-        gold: 'सोना', silver: 'चांदी', platinum: 'प्लैटिनम', palladium: 'पैलेडियम',
-        calculator: 'कैलकुलेटर', westernSpot: 'पश्चिमी स्पॉट', premium: 'प्रीमियम',
-        shanghaiSilver: 'शंघाई चांदी (Ag T+D)', indiaMcx: 'भारत MCX चांदी',
-        intlSpot: 'अंतर्राष्ट्रीय स्पॉट', mcxPrice: 'MCX कीमत', includesDuty: '7.5% शुल्क + 3% GST',
-        status: 'स्थिति', duty: 'शुल्क', updated: 'हर 60 सेकंड में अपडेट • केवल सूचना के लिए'
-    },
-    ms: {
-        gold: 'Emas', silver: 'Perak', platinum: 'Platinum', palladium: 'Paladium',
-        calculator: 'Kalkulator', westernSpot: 'Spot Barat', premium: 'Premium',
-        shanghaiSilver: 'Perak Shanghai (Ag T+D)', indiaMcx: 'Perak MCX India',
-        intlSpot: 'Spot Antarabangsa', mcxPrice: 'Harga MCX', includesDuty: 'termasuk duti + GST',
-        status: 'Status', duty: 'Duti', updated: 'Dikemas kini setiap 60s • Data untuk maklumat sahaja'
-    },
-    it: {
-        gold: 'Oro', silver: 'Argento', platinum: 'Platino', palladium: 'Palladio',
-        calculator: 'Calcolatrice', westernSpot: 'Spot Occidentale', premium: 'Premio',
-        shanghaiSilver: 'Argento Shanghai (Ag T+D)', indiaMcx: 'Argento MCX India',
-        intlSpot: 'Spot Internazionale', mcxPrice: 'Prezzo MCX', includesDuty: 'include dazio + GST',
-        status: 'Stato', duty: 'Dazio', updated: 'Aggiornato ogni 60s • Dati solo informativi'
+        calculator: 'Calculator', updated: 'Updated every 60s • Data for informational purposes'
     },
     de: {
         gold: 'Gold', silver: 'Silber', platinum: 'Platin', palladium: 'Palladium',
-        calculator: 'Rechner', westernSpot: 'Westlicher Spot', premium: 'Aufpreis',
-        shanghaiSilver: 'Shanghai Silber (Ag T+D)', indiaMcx: 'Indien MCX Silber',
-        intlSpot: 'Internationaler Spot', mcxPrice: 'MCX Preis', includesDuty: 'inkl. Zoll + GST',
-        status: 'Status', duty: 'Zoll', updated: 'Alle 60s aktualisiert • Nur zu Informationszwecken'
+        calculator: 'Rechner', updated: 'Alle 60s aktualisiert • Nur zu Informationszwecken'
     },
     es: {
         gold: 'Oro', silver: 'Plata', platinum: 'Platino', palladium: 'Paladio',
-        calculator: 'Calculadora', westernSpot: 'Spot Occidental', premium: 'Prima',
-        shanghaiSilver: 'Plata Shanghai (Ag T+D)', indiaMcx: 'Plata MCX India',
-        intlSpot: 'Spot Internacional', mcxPrice: 'Precio MCX', includesDuty: 'incluye arancel + GST',
-        status: 'Estado', duty: 'Arancel', updated: 'Actualizado cada 60s • Datos solo informativos'
-    },
-    zh: {
-        gold: '黄金', silver: '白银', platinum: '铂金', palladium: '钯金',
-        calculator: '计算器', westernSpot: '西方现货', premium: '溢价',
-        shanghaiSilver: '上海白银 (Ag T+D)', indiaMcx: '印度MCX白银',
-        intlSpot: '国际现货', mcxPrice: 'MCX价格', includesDuty: '含7.5%关税 + 3%GST',
-        status: '状态', duty: '关税', updated: '每60秒更新 • 仅供参考'
+        calculator: 'Calculadora', updated: 'Actualizado cada 60s • Datos solo informativos'
     },
     fr: {
         gold: 'Or', silver: 'Argent', platinum: 'Platine', palladium: 'Palladium',
-        calculator: 'Calculatrice', westernSpot: 'Spot Occidental', premium: 'Prime',
-        shanghaiSilver: 'Argent Shanghai (Ag T+D)', indiaMcx: 'Argent MCX Inde',
-        intlSpot: 'Spot International', mcxPrice: 'Prix MCX', includesDuty: 'inclut droits + GST',
-        status: 'Statut', duty: 'Droits', updated: 'Mise à jour toutes les 60s • Données informatives'
+        calculator: 'Calculatrice', updated: 'Mise à jour toutes les 60s • Données informatives'
+    },
+    it: {
+        gold: 'Oro', silver: 'Argento', platinum: 'Platino', palladium: 'Palladio',
+        calculator: 'Calcolatrice', updated: 'Aggiornato ogni 60s • Dati solo informativi'
     },
     pt: {
         gold: 'Ouro', silver: 'Prata', platinum: 'Platina', palladium: 'Paládio',
-        calculator: 'Calculadora', westernSpot: 'Spot Ocidental', premium: 'Prêmio',
-        shanghaiSilver: 'Prata Shanghai (Ag T+D)', indiaMcx: 'Prata MCX Índia',
-        intlSpot: 'Spot Internacional', mcxPrice: 'Preço MCX', includesDuty: 'inclui impostos + GST',
-        status: 'Status', duty: 'Impostos', updated: 'Atualizado a cada 60s • Dados informativos'
+        calculator: 'Calculadora', updated: 'Atualizado a cada 60s • Dados informativos'
     },
-    tr: {
-        gold: 'Altın', silver: 'Gümüş', platinum: 'Platin', palladium: 'Paladyum',
-        calculator: 'Hesap Makinesi', westernSpot: 'Batı Spot', premium: 'Prim',
-        shanghaiSilver: 'Şanghay Gümüş (Ag T+D)', indiaMcx: 'Hindistan MCX Gümüş',
-        intlSpot: 'Uluslararası Spot', mcxPrice: 'MCX Fiyatı', includesDuty: 'vergi dahil + GST',
-        status: 'Durum', duty: 'Vergi', updated: 'Her 60 saniyede güncellenir • Bilgi amaçlı'
+    zh: {
+        gold: '黄金', silver: '白银', platinum: '铂金', palladium: '钯金',
+        calculator: '计算器', updated: '每60秒更新 • 仅供参考'
     },
     ja: {
         gold: '金', silver: '銀', platinum: 'プラチナ', palladium: 'パラジウム',
-        calculator: '計算機', westernSpot: '欧米スポット', premium: 'プレミアム',
-        shanghaiSilver: '上海シルバー (Ag T+D)', indiaMcx: 'インドMCXシルバー',
-        intlSpot: '国際スポット', mcxPrice: 'MCX価格', includesDuty: '関税+GST込み',
-        status: 'ステータス', duty: '関税', updated: '60秒ごとに更新 • 情報提供のみ'
+        calculator: '計算機', updated: '60秒ごとに更新 • 情報提供のみ'
+    },
+    hi: {
+        gold: 'सोना', silver: 'चांदी', platinum: 'प्लैटिनम', palladium: 'पैलेडियम',
+        calculator: 'कैलकुलेटर', updated: 'हर 60 सेकंड में अपडेट • केवल सूचना के लिए'
+    },
+    tr: {
+        gold: 'Altın', silver: 'Gümüş', platinum: 'Platin', palladium: 'Paladyum',
+        calculator: 'Hesap Makinesi', updated: 'Her 60 saniyede güncellenir • Bilgi amaçlı'
     },
     ru: {
         gold: 'Золото', silver: 'Серебро', platinum: 'Платина', palladium: 'Палладий',
-        calculator: 'Калькулятор', westernSpot: 'Западный спот', premium: 'Премия',
-        shanghaiSilver: 'Шанхайское серебро (Ag T+D)', indiaMcx: 'Индия MCX Серебро',
-        intlSpot: 'Международный спот', mcxPrice: 'Цена MCX', includesDuty: 'включая пошлину + GST',
-        status: 'Статус', duty: 'Пошлина', updated: 'Обновляется каждые 60с • Только для информации'
+        calculator: 'Калькулятор', updated: 'Обновляется каждые 60с • Только для информации'
+    },
+    ms: {
+        gold: 'Emas', silver: 'Perak', platinum: 'Platinum', palladium: 'Paladium',
+        calculator: 'Kalkulator', updated: 'Dikemas kini setiap 60s • Data untuk maklumat sahaja'
     }
 };
 
 let currentLang = 'en';
 
 let prices = {
-    gold: { price: 0, change: 0, high: 0, low: 0 },
-    silver: { price: 0, change: 0, high: 0, low: 0 },
-    platinum: { price: 0, change: 0, high: 0, low: 0 },
-    palladium: { price: 0, change: 0, high: 0, low: 0 },
-    shanghai: { cnyPerKg: 0, usdPerOz: 0, premium: 0, marketOpen: false },
-    india: { inrPerKg: 0, inrPerGram: 0, premiumPct: 10.5, forex: 90.74, source: 'calculated', marketOpen: false }
+    gold: { price: 0, change: 0, changePct: 0, high: 0, low: 0 },
+    silver: { price: 0, change: 0, changePct: 0, high: 0, low: 0 },
+    platinum: { price: 0, change: 0, changePct: 0, high: 0, low: 0 },
+    palladium: { price: 0, change: 0, changePct: 0, high: 0, low: 0 }
 };
 
 let currentCurrency = 'USD';
@@ -113,7 +75,7 @@ function t(key) {
 
 // Apply translations to UI
 function applyTranslations() {
-    // Metal tabs (with null checks)
+    // Metal tabs
     const tabGold = document.querySelector('#tab-gold .text-xs');
     const tabSilver = document.querySelector('#tab-silver .text-xs');
     const tabPlatinum = document.querySelector('#tab-platinum .text-xs');
@@ -145,7 +107,7 @@ const metalConfig = {
     palladium: { name: 'Palladium', code: 'XPD/USD', tvSymbol: 'TVC:PALLADIUM', color: '#E2E8F0', borderColor: 'border-slate-300/50', bgColor: 'bg-slate-300/20' }
 };
 
-// Fetch prices from Kitco (real-time!)
+// Fetch prices from Kitco
 async function fetchPrices() {
     const symbols = { gold: 'AU', silver: 'AG', platinum: 'PT', palladium: 'PD' };
     
@@ -154,7 +116,7 @@ async function fetchPrices() {
             const response = await fetch(`https://proxy.kitco.com/getPM?symbol=${symbol}&currency=USD`);
             const text = await response.text();
             const parts = text.split(',');
-            // Format: symbol,currency,unit,timestamp,bid,ask,mid,change,changePct,low,high
+            
             if (parts.length >= 11) {
                 prices[metal] = {
                     price: parseFloat(parts[4]) || 0,
@@ -169,63 +131,8 @@ async function fetchPrices() {
         }
     }
     
-    fetchRegionalPrices();
     updateUI();
     updateLastUpdated();
-}
-
-function fetchFallbackPrices() {
-    prices.gold = { price: 5045, change: 0, high: 5070, low: 5020 };
-    prices.silver = { price: 81.65, change: 0, high: 82.5, low: 81 };
-    prices.platinum = { price: 2107, change: 0, high: 2120, low: 2090 };
-    prices.palladium = { price: 1722, change: 0, high: 1740, low: 1700 };
-    fetchRegionalPrices();
-}
-
-async function fetchRegionalPrices() {
-    const usdToCny = 7.24;
-    
-    // Try Cloudflare Worker for Shanghai + India data
-    try {
-        const response = await fetch('https://metal-prices-api.729r2pzfqs.workers.dev/');
-        const data = await response.json();
-        
-        // Shanghai
-        if (data.shanghai && data.shanghai.usdPerOz > 0) {
-            prices.shanghai.usdPerOz = data.shanghai.usdPerOz;
-            prices.shanghai.cnyPerKg = data.shanghai.cnyPerKg;
-            prices.shanghai.premium = data.premium.percent;
-            prices.shanghai.marketOpen = data.shanghai.marketOpen || false;
-        }
-        
-        // India MCX
-        if (data.india) {
-            prices.india.inrPerKg = data.india.inrPerKg;
-            prices.india.inrPerGram = parseFloat(data.india.inrPerGram);
-            prices.india.premiumPct = parseFloat(data.india.premiumPercent);
-            prices.india.forex = data.forex?.usdInr || 90.74;
-            prices.india.source = data.india.source || 'calculated';
-            prices.india.marketOpen = data.india.marketOpen || false;
-        }
-        return;
-    } catch (e) {
-        console.log('Worker fallback:', e);
-    }
-    
-    // Fallback: calculate from spot
-    const premium = 1.06;
-    const spotUsdPerKg = prices.silver.price * OZ_PER_KG;
-    const spotCnyPerKg = spotUsdPerKg * usdToCny;
-    
-    prices.shanghai.cnyPerKg = spotCnyPerKg * premium;
-    prices.shanghai.usdPerOz = (prices.shanghai.cnyPerKg / usdToCny) / OZ_PER_KG;
-    prices.shanghai.premium = (premium - 1) * 100;
-    
-    // India fallback (18% duty+GST)
-    const indiaDuty = 1.18;
-    prices.india.inrPerKg = prices.silver.price * OZ_PER_KG * prices.india.forex * indiaDuty;
-    prices.india.inrPerGram = prices.india.inrPerKg / 1000;
-    prices.india.premiumPct = 18;
 }
 
 function selectMetal(metal) {
@@ -243,102 +150,47 @@ function selectMetal(metal) {
         }
     });
     
-    // Show/hide regional section (Shanghai + India) - if exists
-    const regionalEl = document.getElementById('regionalSection');
-    if (regionalEl) regionalEl.classList.toggle('hidden', metal !== 'silver');
-    
     updateUI();
     loadTradingViewChart();
 }
 
 function updateUI() {
     const rate = currencyRates[currentCurrency];
-    const symbols = { USD: '$', EUR: '€', GBP: '£', CNY: '¥', INR: '₹', MYR: 'RM', AUD: 'A$' };
+    const symbols = { USD: '$', EUR: '€', GBP: '£', CNY: '¥', INR: '₹', MYR: 'RM', AUD: 'A$', CAD: 'C$' };
     const symbol = symbols[currentCurrency] || '$';
     const data = prices[selectedMetal];
     const config = metalConfig[selectedMetal];
     
-    // Metal name (translated) and code
-    document.getElementById('metalName').textContent = t(selectedMetal);
-    document.getElementById('metalCode').textContent = config.code;
+    if (!data || !data.price) return;
+    
+    // Metal name and code
+    const metalNameEl = document.getElementById('metalName');
+    const metalCodeEl = document.getElementById('metalCode');
+    if (metalNameEl) metalNameEl.textContent = t(selectedMetal);
+    if (metalCodeEl) metalCodeEl.textContent = config.code;
     
     // Price
     const price = data.price * rate;
     const change = data.change * rate;
     const changePct = data.changePct || 0;
     
-    document.getElementById('metalPrice').textContent = `${symbol}${price.toFixed(2)}`;
+    const metalPriceEl = document.getElementById('metalPrice');
+    if (metalPriceEl) metalPriceEl.textContent = `${symbol}${price.toFixed(2)}`;
     
     const changeEl = document.getElementById('metalChange');
-    changeEl.textContent = change >= 0 ? `+${symbol}${Math.abs(change).toFixed(2)}` : `-${symbol}${Math.abs(change).toFixed(2)}`;
-    changeEl.className = `text-sm ${change >= 0 ? 'price-up' : 'price-down'}`;
-    
-    const pctEl = document.getElementById('metalChangePct');
-    pctEl.textContent = `${changePct >= 0 ? '+' : ''}${changePct.toFixed(2)}%`;
-    pctEl.className = `text-xs px-2 py-0.5 rounded-full ${changePct >= 0 ? 'bg-green-500/20 text-green-400' : 'bg-red-500/20 text-red-400'}`;
-    
-    // Regional premiums (only if silver)
-    if (selectedMetal === 'silver') {
-        // Shanghai
-        // Shanghai section (if elements exist)
-        const westernSpotEl = document.getElementById('westernSpot');
-        if (westernSpotEl) {
-            westernSpotEl.textContent = `$${prices.silver.price.toFixed(2)}`;
-            document.getElementById('shanghaiPrice').textContent = `$${prices.shanghai.usdPerOz.toFixed(2)}`;
-            
-            const premiumUsd = prices.shanghai.usdPerOz - prices.silver.price;
-            const premiumPct = prices.silver.price > 0 ? (premiumUsd / prices.silver.price) * 100 : 0;
-            document.getElementById('shanghaiPremium').textContent = `+$${premiumUsd.toFixed(2)}`;
-            document.getElementById('shanghaiPremiumPct').textContent = `(+${premiumPct.toFixed(1)}%)`;
-            
-            const cnyPerGram = prices.shanghai.cnyPerKg / 1000;
-            document.getElementById('shanghaiCnyGram').textContent = `¥${cnyPerGram.toFixed(2)}`;
-            document.getElementById('shanghaiCnyKg').textContent = `¥${prices.shanghai.cnyPerKg.toFixed(0)}`;
-            document.getElementById('shanghaiUsdKg').textContent = `$${(prices.shanghai.cnyPerKg / 7.24).toFixed(0)}`;
-            
-            const shanghaiOpen = prices.shanghai.marketOpen;
-            document.getElementById('shanghaiMarketStatus').textContent = shanghaiOpen ? '🟢' : '🔴';
-            document.getElementById('shanghaiMarketStatusText').textContent = shanghaiOpen ? 'Open' : 'Closed';
-        }
-        
-        // India MCX section (if elements exist)
-        const indiaSpotEl = document.getElementById('indiaSpot');
-        if (indiaSpotEl) {
-            const indiaUsdOz = prices.india.inrPerKg / OZ_PER_KG / prices.india.forex;
-            const indiaInrOz = prices.india.inrPerKg / OZ_PER_KG;
-            
-            indiaSpotEl.textContent = `$${prices.silver.price.toFixed(2)}`;
-            document.getElementById('indiaPrice').textContent = `$${indiaUsdOz.toFixed(2)}/oz`;
-            document.getElementById('indiaPremium').textContent = `${prices.india.premiumPct >= 0 ? '+' : ''}${prices.india.premiumPct.toFixed(1)}%`;
-            document.getElementById('indiaUsdOz').textContent = `$${indiaUsdOz.toFixed(2)}`;
-            document.getElementById('indiaInrOz').textContent = `₹${indiaInrOz.toLocaleString('en-IN', {maximumFractionDigits: 0})}`;
-            document.getElementById('indiaInrGram').textContent = `₹${prices.india.inrPerGram.toFixed(2)}`;
-            document.getElementById('indiaInrKg').textContent = `₹${(prices.india.inrPerKg/1000).toFixed(0)}k`;
-            document.getElementById('indiaForex').textContent = prices.india.forex.toFixed(1);
-            
-            const mcxOpen = prices.india.marketOpen;
-            document.getElementById('indiaMcxStatus').textContent = mcxOpen ? '🟢' : '🔴';
-            document.getElementById('indiaMcxStatusText').textContent = mcxOpen ? 'Open' : 'Closed';
-        }
+    if (changeEl) {
+        changeEl.textContent = change >= 0 ? `+${symbol}${Math.abs(change).toFixed(2)}` : `-${symbol}${Math.abs(change).toFixed(2)}`;
+        changeEl.className = `text-sm ${change >= 0 ? 'price-up' : 'price-down'}`;
     }
     
-    updateCalculator();
-    updateGoldUI();
-}
-
-function updateLastUpdated() {
-    const el = document.getElementById('lastUpdate');
-    if (el) el.textContent = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
-}
-
-// Gold-specific UI updates
-function updateGoldUI() {
-    const symbols = { USD: '$', EUR: '€', GBP: '£', CNY: '¥', INR: '₹', CAD: 'C$', AUD: 'A$' };
-    const symbol = symbols[currentCurrency] || '$';
-    const rate = currencyRates[currentCurrency];
+    const pctEl = document.getElementById('metalChangePct');
+    if (pctEl) {
+        pctEl.textContent = `${changePct >= 0 ? '+' : ''}${changePct.toFixed(2)}%`;
+        pctEl.className = `text-xs px-2 py-0.5 rounded-full ${changePct >= 0 ? 'bg-green-500/20 text-green-400' : 'bg-red-500/20 text-red-400'}`;
+    }
     
-    // Unit converter (for selected metal)
-    const priceOz = prices[selectedMetal].price * rate;
+    // Unit prices
+    const priceOz = data.price * rate;
     const priceGram = priceOz / TROY_OZ_TO_GRAM;
     const priceKg = priceOz * OZ_PER_KG;
     
@@ -350,20 +202,19 @@ function updateGoldUI() {
     if (priceGramEl) priceGramEl.textContent = `${symbol}${priceGram.toFixed(2)}`;
     if (priceKgEl) priceKgEl.textContent = `${symbol}${priceKg.toLocaleString('en-US', {maximumFractionDigits: 0})}`;
     
-    // All metals prices
+    // All metals sidebar prices
     ['gold', 'silver', 'platinum', 'palladium'].forEach(metal => {
         const priceEl = document.getElementById(`${metal}Price`);
         const changeEl = document.getElementById(`${metal}Change`);
         
         if (priceEl && prices[metal]) {
-            const price = prices[metal].price * rate;
-            priceEl.textContent = `${symbol}${price.toFixed(2)}`;
+            const p = prices[metal].price * rate;
+            priceEl.textContent = `${symbol}${p.toFixed(2)}`;
         }
         if (changeEl && prices[metal]) {
-            const change = prices[metal].change * rate;
-            const changePct = prices[metal].changePct || 0;
-            changeEl.textContent = `${changePct >= 0 ? '+' : ''}${changePct.toFixed(2)}%`;
-            changeEl.className = `text-xs ml-2 ${changePct >= 0 ? 'text-green-400' : 'text-red-400'}`;
+            const pct = prices[metal].changePct || 0;
+            changeEl.textContent = `${pct >= 0 ? '+' : ''}${pct.toFixed(2)}%`;
+            changeEl.className = `text-xs ml-2 ${pct >= 0 ? 'text-green-400' : 'text-red-400'}`;
         }
     });
     
@@ -373,9 +224,18 @@ function updateGoldUI() {
         const ratio = prices.gold.price / prices.silver.price;
         ratioEl.textContent = `${ratio.toFixed(1)} oz Silver`;
     }
+    
+    updateCalculator();
 }
 
-// TradingView Chart - Simple iframe embed
+function updateLastUpdated() {
+    const el = document.getElementById('lastUpdate');
+    if (el) el.textContent = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+}
+
+// TradingView Chart
+let isDark = true;
+
 function loadTradingViewChart() {
     const container = document.getElementById('tradingview-widget');
     if (!container) return;
@@ -394,8 +254,14 @@ function loadTradingViewChart() {
 
 // Calculator
 function updateCalculator() {
-    const amount = parseFloat(document.getElementById('calcAmount').value) || 0;
-    const unit = document.getElementById('calcUnit').value;
+    const amountEl = document.getElementById('calcAmount');
+    const unitEl = document.getElementById('calcUnit');
+    const resultEl = document.getElementById('calcResult');
+    
+    if (!amountEl || !unitEl || !resultEl) return;
+    
+    const amount = parseFloat(amountEl.value) || 0;
+    const unit = unitEl.value;
     const pricePerOz = prices[selectedMetal].price;
     
     let value;
@@ -404,20 +270,19 @@ function updateCalculator() {
     else value = (pricePerOz / TROY_OZ_TO_KG) * amount;
     
     const rate = currencyRates[currentCurrency];
-    const symbols = { USD: '$', EUR: '€', GBP: '£', CNY: '¥', INR: '₹', MYR: 'RM', AUD: 'A$' };
+    const symbols = { USD: '$', EUR: '€', GBP: '£', CNY: '¥', INR: '₹', MYR: 'RM', AUD: 'A$', CAD: 'C$' };
     const symbol = symbols[currentCurrency] || '$';
     
-    // Format based on currency (INR uses Indian locale)
     const locale = currentCurrency === 'INR' ? 'en-IN' : 'en-US';
-    document.getElementById('calcResult').textContent = `${symbol}${(value * rate).toLocaleString(locale, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+    resultEl.textContent = `${symbol}${(value * rate).toLocaleString(locale, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
 }
 
 // Theme toggle
-let isDark = true;
 function toggleTheme() {
     isDark = !isDark;
     document.body.classList.toggle('light', !isDark);
-    document.getElementById('themeToggle').textContent = isDark ? '🌙' : '☀️';
+    const btn = document.getElementById('themeToggle');
+    if (btn) btn.textContent = isDark ? '🌙' : '☀️';
     loadTradingViewChart();
     localStorage.setItem('theme', isDark ? 'dark' : 'light');
 }
@@ -428,27 +293,34 @@ if (localStorage.getItem('theme') === 'light') {
 }
 
 // Events
-document.getElementById('currency').addEventListener('change', e => { 
-    currentCurrency = e.target.value; 
-    localStorage.setItem('currency', currentCurrency);
-    updateUI(); 
-});
-document.getElementById('language')?.addEventListener('change', e => { 
-    currentLang = e.target.value; 
-    localStorage.setItem('lang', currentLang);
-    applyTranslations();
-});
-document.getElementById('calcAmount').addEventListener('input', updateCalculator);
-document.getElementById('calcUnit').addEventListener('change', updateCalculator);
+const currencyEl = document.getElementById('currency');
+if (currencyEl) {
+    currencyEl.addEventListener('change', e => { 
+        currentCurrency = e.target.value; 
+        localStorage.setItem('currency', currentCurrency);
+        updateUI(); 
+    });
+}
 
-// Detect language from page, localStorage, or browser
+const langEl = document.getElementById('language');
+if (langEl) {
+    langEl.addEventListener('change', e => { 
+        currentLang = e.target.value; 
+        localStorage.setItem('lang', currentLang);
+        applyTranslations();
+    });
+}
+
+const calcAmountEl = document.getElementById('calcAmount');
+const calcUnitEl = document.getElementById('calcUnit');
+if (calcAmountEl) calcAmountEl.addEventListener('input', updateCalculator);
+if (calcUnitEl) calcUnitEl.addEventListener('change', updateCalculator);
+
+// Detect language
 function detectLanguage() {
-    // Page-specific language takes priority (set by language subpages)
     if (window.pageLang && i18n[window.pageLang]) return window.pageLang;
-    
     const saved = localStorage.getItem('lang');
     if (saved && i18n[saved]) return saved;
-    
     const browserLang = navigator.language.split('-')[0];
     if (i18n[browserLang]) return browserLang;
     return 'en';
@@ -456,7 +328,6 @@ function detectLanguage() {
 
 // Init
 document.addEventListener('DOMContentLoaded', async () => {
-    // Load saved preferences
     currentLang = detectLanguage();
     const langSelect = document.getElementById('language');
     if (langSelect) langSelect.value = currentLang;
@@ -464,10 +335,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     const savedCurrency = localStorage.getItem('currency');
     if (savedCurrency) {
         currentCurrency = savedCurrency;
-        document.getElementById('currency').value = savedCurrency;
+        const currEl = document.getElementById('currency');
+        if (currEl) currEl.value = savedCurrency;
     }
     
-    // Fetch forex rates for currency conversion
+    // Fetch forex rates
     try {
         const response = await fetch('https://api.exchangerate-api.com/v4/latest/USD');
         const data = await response.json();
