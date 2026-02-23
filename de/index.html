@@ -166,5 +166,6 @@
     </footer>
     <script>window.pageLang = 'de';</script>
     <script src="../app.js"></script>
+    <script>document.getElementById("langBtn")?.addEventListener("click",function(e){e.stopPropagation();document.getElementById("langMenu").classList.toggle("hidden")});document.addEventListener("click",function(){document.getElementById("langMenu")?.classList.add("hidden")});</script>
 </body>
 </html>

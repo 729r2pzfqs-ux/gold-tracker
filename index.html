@@ -133,6 +133,23 @@
             </div>
             <div class="flex items-center gap-2">
                 <button onclick="toggleTheme()" id="themeToggle" class="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-sm">🌙</button>
+                <div class="lang-dropdown relative">
+                    <button id="langBtn" class="bg-slate-800 border border-slate-700 rounded-lg px-2 py-1 text-xs flex items-center gap-1">🇬🇧 EN <span class="text-xs">▼</span></button>
+                    <div id="langMenu" class="hidden absolute right-0 mt-1 bg-slate-800 border border-slate-700 rounded-lg py-1 z-50 min-w-[80px]">
+                        <a href="/" class="block px-3 py-1 text-xs bg-slate-700">🇬🇧 EN</a>
+                        <a href="/de/" class="block px-3 py-1 text-xs hover:bg-slate-700">🇩🇪 DE</a>
+                        <a href="/es/" class="block px-3 py-1 text-xs hover:bg-slate-700">🇪🇸 ES</a>
+                        <a href="/fr/" class="block px-3 py-1 text-xs hover:bg-slate-700">🇫🇷 FR</a>
+                        <a href="/it/" class="block px-3 py-1 text-xs hover:bg-slate-700">🇮🇹 IT</a>
+                        <a href="/pt/" class="block px-3 py-1 text-xs hover:bg-slate-700">🇧🇷 PT</a>
+                        <a href="/zh/" class="block px-3 py-1 text-xs hover:bg-slate-700">🇨🇳 ZH</a>
+                        <a href="/ja/" class="block px-3 py-1 text-xs hover:bg-slate-700">🇯🇵 JA</a>
+                        <a href="/hi/" class="block px-3 py-1 text-xs hover:bg-slate-700">🇮🇳 HI</a>
+                        <a href="/ru/" class="block px-3 py-1 text-xs hover:bg-slate-700">🇷🇺 RU</a>
+                        <a href="/tr/" class="block px-3 py-1 text-xs hover:bg-slate-700">🇹🇷 TR</a>
+                        <a href="/ms/" class="block px-3 py-1 text-xs hover:bg-slate-700">🇲🇾 MS</a>
+                    </div>
+                </div>
                 <select id="currency" class="bg-slate-800 border border-slate-700 rounded-lg px-1.5 py-1 text-xs">
                     <option value="USD">USD</option>
                     <option value="EUR">EUR</option>
@@ -316,5 +333,6 @@
     <!-- TradingView Widget Script -->
     <script>window.pageLang = 'en';</script>
     <script src="app.js"></script>
+    <script>document.getElementById("langBtn")?.addEventListener("click",function(e){e.stopPropagation();document.getElementById("langMenu").classList.toggle("hidden")});document.addEventListener("click",function(){document.getElementById("langMenu")?.classList.add("hidden")});</script>
 </body>
 </html>

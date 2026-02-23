@@ -33,5 +33,6 @@
     </main>
     <footer class="border-t border-slate-700/50 py-6"><div class="max-w-2xl mx-auto px-4 text-center text-sm text-slate-400"><p>© 2026 Gold-Price.app</p><p class="mt-1 text-xs">Prix de l'or en direct des marchés mondiaux</p></div></footer>
     <script>window.pageLang = 'fr';</script><script src="../app.js"></script>
+    <script>document.getElementById("langBtn")?.addEventListener("click",function(e){e.stopPropagation();document.getElementById("langMenu").classList.toggle("hidden")});document.addEventListener("click",function(){document.getElementById("langMenu")?.classList.add("hidden")});</script>
 </body>
 </html>
