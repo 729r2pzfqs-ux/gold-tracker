@@ -42,6 +42,17 @@
     <meta name="twitter:title" content="Live Gold Price Today">
     <meta name="twitter:description" content="Real-time gold price per ounce, gram & kilo. Live spot prices and charts.">
     
+    <!-- PWA & Mobile -->
+    <meta name="theme-color" content="#FFD700">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Gold Price">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' rx='40' fill='%23000'/%3E%3Crect x='20' y='55' width='140' height='70' rx='8' fill='%23FFD700'/%3E%3Crect x='30' y='65' width='120' height='50' rx='4' fill='%23FFC107'/%3E%3C/svg%3E">
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- Additional SEO -->
+    <meta name="keywords" content="gold price, gold price today, live gold price, gold spot price, gold per ounce, gold per gram, XAU USD, precious metals, silver price, platinum price">
+    
     <!-- Schema.org Structured Data -->
     <script type="application/ld+json">
     {
@@ -82,6 +93,29 @@
                 }
             }
         ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Gold-Price.app",
+        "url": "https://gold-price.app/",
+        "logo": "https://gold-price.app/logo.svg",
+        "sameAs": []
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FinancialProduct",
+        "name": "Gold Spot Price",
+        "description": "Live gold spot price tracking with real-time updates",
+        "provider": {
+            "@type": "Organization",
+            "name": "Gold-Price.app"
+        },
+        "category": "Precious Metals"
     }
     </script>
     
