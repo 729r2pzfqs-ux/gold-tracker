@@ -236,8 +236,9 @@ function selectMetal(metal) {
         }
     });
     
-    // Show/hide regional section (Shanghai + India)
-    document.getElementById('regionalSection').classList.toggle('hidden', metal !== 'silver');
+    // Show/hide regional section (Shanghai + India) - if exists
+    const regionalEl = document.getElementById('regionalSection');
+    if (regionalEl) regionalEl.classList.toggle('hidden', metal !== 'silver');
     
     updateUI();
     loadTradingViewChart();
