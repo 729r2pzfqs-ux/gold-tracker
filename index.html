@@ -151,7 +151,7 @@
         .light .metal-card { background: rgba(255,255,255,0.9) !important; border-color: rgba(0,0,0,0.1) !important; }
         .light .bg-slate-700\/50, .light .bg-slate-800, .light .bg-slate-800\/50 { background: rgba(241,245,249,0.9) !important; }
         .light .border-slate-700, .light .border-slate-700\/50 { border-color: rgba(0,0,0,0.1) !important; }
-        .light .text-slate-400, .light .text-slate-500 { color: #64748b !important; }
+        .light .text-slate-300, .light .text-slate-500 { color: #475569 !important; }
         .light select, .light input { background: #f1f5f9 !important; border-color: #cbd5e1 !important; color: #1e293b !important; }
         .light .text-white { color: #1e293b !important; }
         .light header, .light footer { border-color: rgba(0,0,0,0.1) !important; }
@@ -168,7 +168,7 @@
             <div class="flex items-center gap-2">
                 <button onclick="toggleTheme()" id="themeToggle" class="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-sm">🌙</button>
                 <div class="lang-dropdown relative">
-                    <button id="langBtn" class="bg-slate-800 border border-slate-700 rounded-lg px-2 py-1 text-xs flex items-center gap-1">🇬🇧 EN <span class="text-xs">▼</span></button>
+                    <button id="langBtn" aria-label="Select language" class="bg-slate-800 border border-slate-700 rounded-lg px-2 py-1 text-xs flex items-center gap-1">🇬🇧 EN <span class="text-xs">▼</span></button>
                     <div id="langMenu" class="hidden absolute right-0 mt-1 bg-slate-800 border border-slate-700 rounded-lg py-1 z-50 min-w-[80px]">
                         <a href="/" class="block px-3 py-1 text-xs bg-slate-700">🇬🇧 EN</a>
                         <a href="/de/" class="block px-3 py-1 text-xs hover:bg-slate-700">🇩🇪 DE</a>
@@ -184,7 +184,7 @@
                         <a href="/ms/" class="block px-3 py-1 text-xs hover:bg-slate-700">🇲🇾 MS</a>
                     </div>
                 </div>
-                <select id="currency" class="bg-slate-800 border border-slate-700 rounded-lg px-1.5 py-1 text-xs">
+                <select id="currency" aria-label="Select currency" class="bg-slate-800 border border-slate-700 rounded-lg px-1.5 py-1 text-xs">
                     <option value="USD">USD</option>
                     <option value="EUR">EUR</option>
                     <option value="CNY">CNY</option>
@@ -231,7 +231,7 @@
             <div class="flex items-center justify-between">
                 <div>
                     <h2 id="metalName" class="text-lg font-bold">Gold</h2>
-                    <p id="metalCode" class="text-xs text-slate-400">XAU/USD</p>
+                    <p id="metalCode" class="text-xs text-slate-300">XAU/USD</p>
                 </div>
                 <div class="text-right">
                     <div id="metalPrice" class="text-2xl font-bold text-amber-400">--</div>
@@ -255,15 +255,15 @@
             </h3>
             <div class="grid grid-cols-3 gap-3">
                 <div class="bg-slate-800/50 rounded-xl p-3 text-center">
-                    <div class="text-slate-400 text-xs">Per Ounce</div>
+                    <div class="text-slate-300 text-xs">Per Ounce</div>
                     <div id="priceOz" class="text-lg font-bold text-amber-400">--</div>
                 </div>
                 <div class="bg-slate-800/50 rounded-xl p-3 text-center">
-                    <div class="text-slate-400 text-xs">Per Gram</div>
+                    <div class="text-slate-300 text-xs">Per Gram</div>
                     <div id="priceGram" class="text-lg font-bold">--</div>
                 </div>
                 <div class="bg-slate-800/50 rounded-xl p-3 text-center">
-                    <div class="text-slate-400 text-xs">Per Kilo</div>
+                    <div class="text-slate-300 text-xs">Per Kilo</div>
                     <div id="priceKg" class="text-lg font-bold">--</div>
                 </div>
             </div>
@@ -323,10 +323,10 @@
             </h3>
             <div class="flex items-center justify-between">
                 <div>
-                    <p class="text-slate-400 text-sm">1 oz Gold buys</p>
+                    <p class="text-slate-300 text-sm">1 oz Gold buys</p>
                     <p id="goldSilverRatio" class="text-2xl font-bold">-- oz Silver</p>
                 </div>
-                <div class="text-right text-slate-400 text-sm">
+                <div class="text-right text-slate-300 text-sm">
                     <p>Historical avg: ~60</p>
                     <p>High: 125 (2020)</p>
                 </div>
@@ -339,15 +339,15 @@
             <div class="space-y-4 text-sm">
                 <div>
                     <h4 class="font-medium text-amber-400 mb-1">What is the gold spot price?</h4>
-                    <p class="text-slate-400">The spot price is the current market price at which gold can be bought or sold for immediate delivery. It's determined by trading on commodity exchanges worldwide.</p>
+                    <p class="text-slate-300">The spot price is the current market price at which gold can be bought or sold for immediate delivery. It's determined by trading on commodity exchanges worldwide.</p>
                 </div>
                 <div>
                     <h4 class="font-medium text-amber-400 mb-1">Why does gold price change?</h4>
-                    <p class="text-slate-400">Gold prices fluctuate based on supply and demand, inflation expectations, interest rates, currency movements (especially USD), and global economic/political uncertainty.</p>
+                    <p class="text-slate-300">Gold prices fluctuate based on supply and demand, inflation expectations, interest rates, currency movements (especially USD), and global economic/political uncertainty.</p>
                 </div>
                 <div>
                     <h4 class="font-medium text-amber-400 mb-1">What is a troy ounce?</h4>
-                    <p class="text-slate-400">A troy ounce (31.1 grams) is the standard unit for measuring precious metals. It's slightly heavier than a regular ounce (28.35 grams).</p>
+                    <p class="text-slate-300">A troy ounce (31.1 grams) is the standard unit for measuring precious metals. It's slightly heavier than a regular ounce (28.35 grams).</p>
                 </div>
             </div>
         </div>
@@ -358,7 +358,7 @@
 
     <!-- Footer -->
     <footer class="border-t border-slate-700/50 py-6">
-        <div class="max-w-2xl mx-auto px-4 text-center text-sm text-slate-400">
+        <div class="max-w-2xl mx-auto px-4 text-center text-sm text-slate-300">
             <p>© 2026 Gold-Price.app</p>
             <p class="mt-1 text-xs">Live gold prices from global markets</p>
         </div>

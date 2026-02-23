@@ -52,7 +52,7 @@
         .light .metal-card { background: rgba(255,255,255,0.9) !important; border-color: rgba(0,0,0,0.1) !important; }
         .light .bg-slate-700\/50, .light .bg-slate-800, .light .bg-slate-800\/50 { background: rgba(241,245,249,0.9) !important; }
         .light .border-slate-700, .light .border-slate-700\/50 { border-color: rgba(0,0,0,0.1) !important; }
-        .light .text-slate-400, .light .text-slate-500 { color: #64748b !important; }
+        .light .text-slate-300, .light .text-slate-500 { color: #64748b !important; }
         .light select, .light input { background: #f1f5f9 !important; border-color: #cbd5e1 !important; color: #1e293b !important; }
         .light .text-white { color: #1e293b !important; }
         .light header, .light footer { border-color: rgba(0,0,0,0.1) !important; }
@@ -67,8 +67,8 @@
             </div>
             <div class="flex items-center gap-2">
                 <button onclick="toggleTheme()" id="themeToggle" class="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-sm">🌙</button>
-                <div class="lang-dropdown relative"><button id="langBtn" class="bg-slate-800 border border-slate-700 rounded-lg px-2 py-1 text-xs flex items-center gap-1">🇩🇪 DE <span class="text-xs">▼</span></button><div id="langMenu" class="hidden absolute right-0 mt-1 bg-slate-800 border border-slate-700 rounded-lg py-1 z-50 min-w-[80px]"><a href="/" class="block px-3 py-1 text-xs hover:bg-slate-700">🇬🇧 EN</a><a href="/de/" class="block px-3 py-1 text-xs bg-slate-700">🇩🇪 DE</a><a href="/es/" class="block px-3 py-1 text-xs hover:bg-slate-700">🇪🇸 ES</a><a href="/fr/" class="block px-3 py-1 text-xs hover:bg-slate-700">🇫🇷 FR</a><a href="/it/" class="block px-3 py-1 text-xs hover:bg-slate-700">🇮🇹 IT</a><a href="/pt/" class="block px-3 py-1 text-xs hover:bg-slate-700">🇧🇷 PT</a><a href="/zh/" class="block px-3 py-1 text-xs hover:bg-slate-700">🇨🇳 ZH</a><a href="/ja/" class="block px-3 py-1 text-xs hover:bg-slate-700">🇯🇵 JA</a><a href="/hi/" class="block px-3 py-1 text-xs hover:bg-slate-700">🇮🇳 HI</a><a href="/ru/" class="block px-3 py-1 text-xs hover:bg-slate-700">🇷🇺 RU</a><a href="/tr/" class="block px-3 py-1 text-xs hover:bg-slate-700">🇹🇷 TR</a><a href="/ms/" class="block px-3 py-1 text-xs hover:bg-slate-700">🇲🇾 MS</a></div></div>
-                <select id="currency" class="bg-slate-800 border border-slate-700 rounded-lg px-1.5 py-1 text-xs">
+                <div class="lang-dropdown relative"><button id="langBtn" aria-label="Select language" class="bg-slate-800 border border-slate-700 rounded-lg px-2 py-1 text-xs flex items-center gap-1">🇩🇪 DE <span class="text-xs">▼</span></button><div id="langMenu" class="hidden absolute right-0 mt-1 bg-slate-800 border border-slate-700 rounded-lg py-1 z-50 min-w-[80px]"><a href="/" class="block px-3 py-1 text-xs hover:bg-slate-700">🇬🇧 EN</a><a href="/de/" class="block px-3 py-1 text-xs bg-slate-700">🇩🇪 DE</a><a href="/es/" class="block px-3 py-1 text-xs hover:bg-slate-700">🇪🇸 ES</a><a href="/fr/" class="block px-3 py-1 text-xs hover:bg-slate-700">🇫🇷 FR</a><a href="/it/" class="block px-3 py-1 text-xs hover:bg-slate-700">🇮🇹 IT</a><a href="/pt/" class="block px-3 py-1 text-xs hover:bg-slate-700">🇧🇷 PT</a><a href="/zh/" class="block px-3 py-1 text-xs hover:bg-slate-700">🇨🇳 ZH</a><a href="/ja/" class="block px-3 py-1 text-xs hover:bg-slate-700">🇯🇵 JA</a><a href="/hi/" class="block px-3 py-1 text-xs hover:bg-slate-700">🇮🇳 HI</a><a href="/ru/" class="block px-3 py-1 text-xs hover:bg-slate-700">🇷🇺 RU</a><a href="/tr/" class="block px-3 py-1 text-xs hover:bg-slate-700">🇹🇷 TR</a><a href="/ms/" class="block px-3 py-1 text-xs hover:bg-slate-700">🇲🇾 MS</a></div></div>
+                <select id="currency" aria-label="Select currency" class="bg-slate-800 border border-slate-700 rounded-lg px-1.5 py-1 text-xs">
                     <option value="USD">USD</option><option value="EUR">EUR</option><option value="CNY">CNY</option><option value="INR">INR</option><option value="GBP">GBP</option><option value="AUD">AUD</option><option value="CAD">CAD</option>
                 </select>
             </div>
@@ -103,7 +103,7 @@
         </div>
         <div class="metal-card rounded-2xl border border-amber-500/30 p-4 mb-4">
             <div class="flex items-center justify-between">
-                <div><h2 id="metalName" class="text-lg font-bold">Gold</h2><p id="metalCode" class="text-xs text-slate-400">XAU/USD</p></div>
+                <div><h2 id="metalName" class="text-lg font-bold">Gold</h2><p id="metalCode" class="text-xs text-slate-300">XAU/USD</p></div>
                 <div class="text-right">
                     <div id="metalPrice" class="text-2xl font-bold text-amber-400">--</div>
                     <div class="flex items-center justify-end gap-2"><span id="metalChange" class="text-sm">--</span><span id="metalChangePct" class="text-xs px-2 py-0.5 rounded-full bg-slate-700">--</span></div>
@@ -116,9 +116,9 @@
         <div class="metal-card rounded-2xl border border-slate-700/50 p-4 mb-4">
             <h3 class="font-semibold mb-3 flex items-center gap-2"><span>📊</span> Goldpreis pro Einheit</h3>
             <div class="grid grid-cols-3 gap-3">
-                <div class="bg-slate-800/50 rounded-xl p-3 text-center"><div class="text-slate-400 text-xs">Pro Unze</div><div id="priceOz" class="text-lg font-bold text-amber-400">--</div></div>
-                <div class="bg-slate-800/50 rounded-xl p-3 text-center"><div class="text-slate-400 text-xs">Pro Gramm</div><div id="priceGram" class="text-lg font-bold">--</div></div>
-                <div class="bg-slate-800/50 rounded-xl p-3 text-center"><div class="text-slate-400 text-xs">Pro Kilo</div><div id="priceKg" class="text-lg font-bold">--</div></div>
+                <div class="bg-slate-800/50 rounded-xl p-3 text-center"><div class="text-slate-300 text-xs">Pro Unze</div><div id="priceOz" class="text-lg font-bold text-amber-400">--</div></div>
+                <div class="bg-slate-800/50 rounded-xl p-3 text-center"><div class="text-slate-300 text-xs">Pro Gramm</div><div id="priceGram" class="text-lg font-bold">--</div></div>
+                <div class="bg-slate-800/50 rounded-xl p-3 text-center"><div class="text-slate-300 text-xs">Pro Kilo</div><div id="priceKg" class="text-lg font-bold">--</div></div>
             </div>
         </div>
         <div class="metal-card rounded-2xl border border-slate-700/50 p-4 mb-4">
@@ -145,22 +145,22 @@
         <div class="metal-card rounded-2xl border border-slate-700/50 p-4 mb-4">
             <h3 class="font-semibold mb-3 flex items-center gap-2"><span>⚖️</span> Gold/Silber-Verhältnis</h3>
             <div class="flex items-center justify-between">
-                <div><p class="text-slate-400 text-sm">1 Unze Gold kauft</p><p id="goldSilverRatio" class="text-2xl font-bold">-- Unzen Silber</p></div>
-                <div class="text-right text-slate-400 text-sm"><p>Hist. Durchschnitt: ~60</p><p>Hoch: 125 (2020)</p></div>
+                <div><p class="text-slate-300 text-sm">1 Unze Gold kauft</p><p id="goldSilverRatio" class="text-2xl font-bold">-- Unzen Silber</p></div>
+                <div class="text-right text-slate-300 text-sm"><p>Hist. Durchschnitt: ~60</p><p>Hoch: 125 (2020)</p></div>
             </div>
         </div>
         <div class="metal-card rounded-2xl border border-slate-700/50 p-4 mb-4">
             <h3 class="font-semibold mb-4">Häufig gestellte Fragen</h3>
             <div class="space-y-4 text-sm">
-                <div><h4 class="font-medium text-amber-400 mb-1">Was ist der Gold-Spotpreis?</h4><p class="text-slate-400">Der Spotpreis ist der aktuelle Marktpreis, zu dem Gold sofort gekauft oder verkauft werden kann. Er wird durch den Handel an Rohstoffbörsen weltweit bestimmt.</p></div>
-                <div><h4 class="font-medium text-amber-400 mb-1">Warum ändert sich der Goldpreis?</h4><p class="text-slate-400">Goldpreise schwanken basierend auf Angebot und Nachfrage, Inflationserwartungen, Zinssätzen, Währungsbewegungen und globaler wirtschaftlicher/politischer Unsicherheit.</p></div>
-                <div><h4 class="font-medium text-amber-400 mb-1">Was ist eine Feinunze?</h4><p class="text-slate-400">Eine Feinunze (31,1 Gramm) ist die Standardeinheit für Edelmetalle. Sie ist etwas schwerer als eine normale Unze (28,35 Gramm).</p></div>
+                <div><h4 class="font-medium text-amber-400 mb-1">Was ist der Gold-Spotpreis?</h4><p class="text-slate-300">Der Spotpreis ist der aktuelle Marktpreis, zu dem Gold sofort gekauft oder verkauft werden kann. Er wird durch den Handel an Rohstoffbörsen weltweit bestimmt.</p></div>
+                <div><h4 class="font-medium text-amber-400 mb-1">Warum ändert sich der Goldpreis?</h4><p class="text-slate-300">Goldpreise schwanken basierend auf Angebot und Nachfrage, Inflationserwartungen, Zinssätzen, Währungsbewegungen und globaler wirtschaftlicher/politischer Unsicherheit.</p></div>
+                <div><h4 class="font-medium text-amber-400 mb-1">Was ist eine Feinunze?</h4><p class="text-slate-300">Eine Feinunze (31,1 Gramm) ist die Standardeinheit für Edelmetalle. Sie ist etwas schwerer als eine normale Unze (28,35 Gramm).</p></div>
             </div>
         </div>
         <p class="text-center text-xs text-slate-500 mb-4">Aktualisiert alle 60s • Daten nur zu Informationszwecken</p>
     </main>
     <footer class="border-t border-slate-700/50 py-6">
-        <div class="max-w-2xl mx-auto px-4 text-center text-sm text-slate-400">
+        <div class="max-w-2xl mx-auto px-4 text-center text-sm text-slate-300">
             <p>© 2026 Gold-Price.app</p>
             <p class="mt-1 text-xs">Live Goldpreise von globalen Märkten</p>
         </div>
