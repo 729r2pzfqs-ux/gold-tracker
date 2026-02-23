@@ -113,11 +113,16 @@ function t(key) {
 
 // Apply translations to UI
 function applyTranslations() {
-    // Metal tabs
-    document.querySelector('#tab-gold .text-xs').textContent = t('gold');
-    document.querySelector('#tab-silver .text-xs').textContent = t('silver');
-    document.querySelector('#tab-platinum .text-xs').textContent = t('platinum');
-    document.querySelector('#tab-palladium .text-xs').textContent = t('palladium');
+    // Metal tabs (with null checks)
+    const tabGold = document.querySelector('#tab-gold .text-xs');
+    const tabSilver = document.querySelector('#tab-silver .text-xs');
+    const tabPlatinum = document.querySelector('#tab-platinum .text-xs');
+    const tabPalladium = document.querySelector('#tab-palladium .text-xs');
+    
+    if (tabGold) tabGold.textContent = t('gold');
+    if (tabSilver) tabSilver.textContent = t('silver');
+    if (tabPlatinum) tabPlatinum.textContent = t('platinum');
+    if (tabPalladium) tabPalladium.textContent = t('palladium');
     
     // All elements with data-i18n attribute
     document.querySelectorAll('[data-i18n]').forEach(el => {
@@ -126,7 +131,8 @@ function applyTranslations() {
     });
     
     // Footer
-    document.querySelector('footer p').textContent = t('updated');
+    const footerP = document.querySelector('footer p');
+    if (footerP) footerP.textContent = t('updated');
     
     // Update metal name if needed
     if (prices[selectedMetal]) updateUI();
@@ -228,6 +234,7 @@ function selectMetal(metal) {
     // Update tabs
     ['gold', 'silver', 'platinum', 'palladium'].forEach(m => {
         const tab = document.getElementById(`tab-${m}`);
+        if (!tab) return;
         const config = metalConfig[m];
         if (m === metal) {
             tab.className = `metal-tab flex-1 py-3 px-4 rounded-xl ${config.bgColor} border-2 ${config.borderColor} active`;
