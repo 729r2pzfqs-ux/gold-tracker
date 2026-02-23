@@ -272,41 +272,46 @@ function updateUI() {
     // Regional premiums (only if silver)
     if (selectedMetal === 'silver') {
         // Shanghai
-        document.getElementById('westernSpot').textContent = `$${prices.silver.price.toFixed(2)}`;
-        document.getElementById('shanghaiPrice').textContent = `$${prices.shanghai.usdPerOz.toFixed(2)}`;
+        // Shanghai section (if elements exist)
+        const westernSpotEl = document.getElementById('westernSpot');
+        if (westernSpotEl) {
+            westernSpotEl.textContent = `$${prices.silver.price.toFixed(2)}`;
+            document.getElementById('shanghaiPrice').textContent = `$${prices.shanghai.usdPerOz.toFixed(2)}`;
+            
+            const premiumUsd = prices.shanghai.usdPerOz - prices.silver.price;
+            const premiumPct = prices.silver.price > 0 ? (premiumUsd / prices.silver.price) * 100 : 0;
+            document.getElementById('shanghaiPremium').textContent = `+$${premiumUsd.toFixed(2)}`;
+            document.getElementById('shanghaiPremiumPct').textContent = `(+${premiumPct.toFixed(1)}%)`;
+            
+            const cnyPerGram = prices.shanghai.cnyPerKg / 1000;
+            document.getElementById('shanghaiCnyGram').textContent = `¥${cnyPerGram.toFixed(2)}`;
+            document.getElementById('shanghaiCnyKg').textContent = `¥${prices.shanghai.cnyPerKg.toFixed(0)}`;
+            document.getElementById('shanghaiUsdKg').textContent = `$${(prices.shanghai.cnyPerKg / 7.24).toFixed(0)}`;
+            
+            const shanghaiOpen = prices.shanghai.marketOpen;
+            document.getElementById('shanghaiMarketStatus').textContent = shanghaiOpen ? '🟢' : '🔴';
+            document.getElementById('shanghaiMarketStatusText').textContent = shanghaiOpen ? 'Open' : 'Closed';
+        }
         
-        const premiumUsd = prices.shanghai.usdPerOz - prices.silver.price;
-        const premiumPct = prices.silver.price > 0 ? (premiumUsd / prices.silver.price) * 100 : 0;
-        document.getElementById('shanghaiPremium').textContent = `+$${premiumUsd.toFixed(2)}`;
-        document.getElementById('shanghaiPremiumPct').textContent = `(+${premiumPct.toFixed(1)}%)`;
-        
-        const cnyPerGram = prices.shanghai.cnyPerKg / 1000;
-        document.getElementById('shanghaiCnyGram').textContent = `¥${cnyPerGram.toFixed(2)}`;
-        document.getElementById('shanghaiCnyKg').textContent = `¥${prices.shanghai.cnyPerKg.toFixed(0)}`;
-        document.getElementById('shanghaiUsdKg').textContent = `$${(prices.shanghai.cnyPerKg / 7.24).toFixed(0)}`;
-        
-        // Shanghai market status
-        const shanghaiOpen = prices.shanghai.marketOpen;
-        document.getElementById('shanghaiMarketStatus').textContent = shanghaiOpen ? '🟢' : '🔴';
-        document.getElementById('shanghaiMarketStatusText').textContent = shanghaiOpen ? 'Open' : 'Closed';
-        
-        // India MCX
-        const indiaUsdOz = prices.india.inrPerKg / OZ_PER_KG / prices.india.forex;
-        const indiaInrOz = prices.india.inrPerKg / OZ_PER_KG;
-        
-        document.getElementById('indiaSpot').textContent = `$${prices.silver.price.toFixed(2)}`;
-        document.getElementById('indiaPrice').textContent = `$${indiaUsdOz.toFixed(2)}/oz`;
-        document.getElementById('indiaPremium').textContent = `${prices.india.premiumPct >= 0 ? '+' : ''}${prices.india.premiumPct.toFixed(1)}%`;
-        document.getElementById('indiaUsdOz').textContent = `$${indiaUsdOz.toFixed(2)}`;
-        document.getElementById('indiaInrOz').textContent = `₹${indiaInrOz.toLocaleString('en-IN', {maximumFractionDigits: 0})}`;
-        document.getElementById('indiaInrGram').textContent = `₹${prices.india.inrPerGram.toFixed(2)}`;
-        document.getElementById('indiaInrKg').textContent = `₹${(prices.india.inrPerKg/1000).toFixed(0)}k`;
-        document.getElementById('indiaForex').textContent = prices.india.forex.toFixed(1);
-        
-        // MCX market status
-        const mcxOpen = prices.india.marketOpen;
-        document.getElementById('indiaMcxStatus').textContent = mcxOpen ? '🟢' : '🔴';
-        document.getElementById('indiaMcxStatusText').textContent = mcxOpen ? 'Open' : 'Closed';
+        // India MCX section (if elements exist)
+        const indiaSpotEl = document.getElementById('indiaSpot');
+        if (indiaSpotEl) {
+            const indiaUsdOz = prices.india.inrPerKg / OZ_PER_KG / prices.india.forex;
+            const indiaInrOz = prices.india.inrPerKg / OZ_PER_KG;
+            
+            indiaSpotEl.textContent = `$${prices.silver.price.toFixed(2)}`;
+            document.getElementById('indiaPrice').textContent = `$${indiaUsdOz.toFixed(2)}/oz`;
+            document.getElementById('indiaPremium').textContent = `${prices.india.premiumPct >= 0 ? '+' : ''}${prices.india.premiumPct.toFixed(1)}%`;
+            document.getElementById('indiaUsdOz').textContent = `$${indiaUsdOz.toFixed(2)}`;
+            document.getElementById('indiaInrOz').textContent = `₹${indiaInrOz.toLocaleString('en-IN', {maximumFractionDigits: 0})}`;
+            document.getElementById('indiaInrGram').textContent = `₹${prices.india.inrPerGram.toFixed(2)}`;
+            document.getElementById('indiaInrKg').textContent = `₹${(prices.india.inrPerKg/1000).toFixed(0)}k`;
+            document.getElementById('indiaForex').textContent = prices.india.forex.toFixed(1);
+            
+            const mcxOpen = prices.india.marketOpen;
+            document.getElementById('indiaMcxStatus').textContent = mcxOpen ? '🟢' : '🔴';
+            document.getElementById('indiaMcxStatusText').textContent = mcxOpen ? 'Open' : 'Closed';
+        }
     }
     
     updateCalculator();
