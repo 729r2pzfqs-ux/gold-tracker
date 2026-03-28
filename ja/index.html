@@ -12,6 +12,32 @@
     <script src="https://cdn.tailwindcss.com"></script><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script>tailwind.config = { theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'] } } } }</script>
     <style>.metal-card { backdrop-filter: blur(10px); background: rgba(255, 255, 255, 0.03); }.price-up { color: #22c55e; } .price-down { color: #ef4444; }.metal-tab { transition: all 0.2s; } .metal-tab.active { transform: scale(1.02); }.bg-slate-700\/50, .bg-slate-800 { background: rgba(255,255,255,0.05) !important; }.light { background: #f5f5f5 !important; color: #1e293b !important; }.light .metal-card { background: rgba(255,255,255,0.9) !important; }.light .text-slate-300 { color: #64748b !important; }.light .text-white { color: #1e293b !important; }</style>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "本日の金価格 | リアルタイム金相場 | Gold-Price.app",
+        "url": "https://gold-price.app/ja/",
+        "description": "オンス、グラム、キログラムあたりのリアルタイム金価格とインタラクティブチャート。",
+        "dateModified": "2026-03-28",
+        "inLanguage": "ja"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {"@type": "Question", "name": "金のスポット価格とは何ですか？", "acceptedAnswer": {"@type": "Answer", "text": "スポット価格とは、金を即時引き渡しで売買できる現在の市場価格です。主にニューヨークのCOMEXやロンドン・ブリオン・マーケットなど、世界中の商品取引所での取引によって決定されます。"}},
+            {"@type": "Question", "name": "なぜ金価格は変動するのですか？", "acceptedAnswer": {"@type": "Answer", "text": "金価格は需給、インフレ期待、金利、為替変動（特に米ドル）、そして世界的な経済的・政治的不確実性に基づいて変動します。"}},
+            {"@type": "Question", "name": "トロイオンスとは何ですか？", "acceptedAnswer": {"@type": "Answer", "text": "トロイオンス（31.1035グラム）は、貴金属を計量する標準単位です。通常のオンス（28.35グラム）よりわずかに重く、金取引で世界的に使用されています。"}},
+            {"@type": "Question", "name": "2026年に金は良い投資ですか？", "acceptedAnswer": {"@type": "Answer", "text": "金は伝統的にインフレや経済的不確実性に対する安全な避難所と考えられています。投資としての適合性は、あなたの財務目標、リスク許容度、ポートフォリオの分散に依存します。"}},
+            {"@type": "Question", "name": "金の購入方法は？", "acceptedAnswer": {"@type": "Answer", "text": "金は様々な方法で購入できます：販売業者からの現物の地金やコイン、証券取引所での金ETF、商品市場での金先物、または金鉱会社の株式。"}},
+            {"@type": "Question", "name": "金価格に影響を与える要因は？", "acceptedAnswer": {"@type": "Answer", "text": "主な要因には：米ドルの強さ、インフレ率、中央銀行の政策、地政学的緊張、産業・宝飾品需要、中央銀行の購入が含まれます。"}},
+            {"@type": "Question", "name": "投資としての金と銀の違いは？", "acceptedAnswer": {"@type": "Answer", "text": "金は一般的により安定しており安全資産として機能しますが、銀はより変動しやすく産業用途が大きいです。金銀比率は、投資家が両金属の相対的価値を比較するのに役立ちます。"}}
+        ]
+    }
+    </script>
 </head>
 <body class="bg-black min-h-screen font-sans text-white">
     <header class="border-b border-slate-700/50"><div class="max-w-2xl mx-auto px-4 py-3 flex items-center justify-between"><div class="flex items-center gap-2"><svg width="28" height="20" viewBox="0 0 28 20"><rect x="2" y="4" width="24" height="12" rx="1" fill="#FFD700"/><rect x="4" y="6" width="20" height="8" rx="1" fill="#FFC107"/></svg><h1 class="text-lg font-bold">Gold-Price.app</h1></div><div class="flex items-center gap-2"><button onclick="toggleTheme()" id="themeToggle" class="p-1.5 rounded-lg bg-slate-800 text-sm">🌙</button>
@@ -28,6 +54,8 @@
         <div class="metal-card rounded-2xl border border-slate-700/50 p-4 mb-4"><h3 class="font-semibold mb-3"><svg width="20" height="14" viewBox="0 0 24 16" class="inline-block"><rect x="1" y="3" width="22" height="10" rx="1" fill="#FFD700"/><rect x="3" y="5" width="18" height="6" rx="1" fill="#FFC107"/></svg> 金価格（単位別）</h3><div class="grid grid-cols-3 gap-3"><div class="bg-slate-800/50 rounded-xl p-3 text-center"><div class="text-slate-300 text-xs">オンスあたり</div><div id="priceOz" class="text-lg font-bold text-amber-400">--</div></div><div class="bg-slate-800/50 rounded-xl p-3 text-center"><div class="text-slate-300 text-xs">グラムあたり</div><div id="priceGram" class="text-lg font-bold">--</div></div><div class="bg-slate-800/50 rounded-xl p-3 text-center"><div class="text-slate-300 text-xs">キログラムあたり</div><div id="priceKg" class="text-lg font-bold">--</div></div></div></div>
         <div class="metal-card rounded-2xl border border-slate-700/50 p-4 mb-4"><h3 class="font-semibold mb-3">全貴金属</h3><div class="space-y-2"><div class="flex items-center justify-between p-2 rounded-lg bg-amber-500/10"><span class="font-medium">金</span><div><span id="goldPrice" class="font-bold text-amber-400">--</span><span id="goldChange" class="text-xs ml-2">--</span></div></div><div class="flex items-center justify-between p-2 rounded-lg bg-slate-800/50"><span class="font-medium">銀</span><div><span id="silverPrice" class="font-bold">--</span><span id="silverChange" class="text-xs ml-2">--</span></div></div><div class="flex items-center justify-between p-2 rounded-lg bg-slate-800/50"><span class="font-medium">プラチナ</span><div><span id="platinumPrice" class="font-bold">--</span><span id="platinumChange" class="text-xs ml-2">--</span></div></div><div class="flex items-center justify-between p-2 rounded-lg bg-slate-800/50"><span class="font-medium">パラジウム</span><div><span id="palladiumPrice" class="font-bold">--</span><span id="palladiumChange" class="text-xs ml-2">--</span></div></div></div></div>
         <div class="metal-card rounded-2xl border border-slate-700/50 p-4 mb-4"><h3 class="font-semibold mb-3">⚖️ 金銀比率</h3><div class="flex items-center justify-between"><div><p class="text-slate-300 text-sm">金1オンスで購入可能</p><p id="goldSilverRatio" class="text-2xl font-bold">-- オンスの銀</p></div></div></div>
+                <div class="metal-card rounded-2xl border border-slate-700/50 p-4 mb-4"><h3 class="font-semibold mb-3">金価格について</h3><div class="space-y-3 text-sm text-slate-300"><p>金は古代文明から現代の金融市場に至るまで、何千年もの間、価値の保存手段でした。その希少性、耐久性、普遍的な魅力により、世界で最も重要な貴金属となっています。</p><p>金価格は複数の要因に影響されます：米ドルの強さ、インフレ率、中央銀行の政策、地政学的緊張、宝飾品や産業の世界的需要。世界中の中央銀行は、金融政策の一環として大量の金準備を保有しています。</p><p>投資家は世界経済の健全性の指標として金価格を注視しています。不確実な時期には、金は価値が上昇する傾向があり、インフレや通貨の下落に対するヘッジとして機能します。</p></div></div>
+        <div class="metal-card rounded-2xl border border-slate-700/50 p-4 mb-4"><h3 class="font-semibold mb-4">よくある質問</h3><div class="space-y-4 text-sm"><div><h4 class="font-medium text-amber-400 mb-1">金のスポット価格とは何ですか？</h4><p class="text-slate-300">スポット価格とは、金を即時引き渡しで売買できる現在の市場価格です。主にニューヨークのCOMEXやロンドン・ブリオン・マーケットなど、世界中の商品取引所での取引によって決定されます。</p></div><div><h4 class="font-medium text-amber-400 mb-1">なぜ金価格は変動するのですか？</h4><p class="text-slate-300">金価格は需給、インフレ期待、金利、為替変動（特に米ドル）、そして世界的な経済的・政治的不確実性に基づいて変動します。</p></div><div><h4 class="font-medium text-amber-400 mb-1">トロイオンスとは何ですか？</h4><p class="text-slate-300">トロイオンス（31.1035グラム）は、貴金属を計量する標準単位です。通常のオンス（28.35グラム）よりわずかに重く、金取引で世界的に使用されています。</p></div><div><h4 class="font-medium text-amber-400 mb-1">2026年に金は良い投資ですか？</h4><p class="text-slate-300">金は伝統的にインフレや経済的不確実性に対する安全な避難所と考えられています。投資としての適合性は、あなたの財務目標、リスク許容度、ポートフォリオの分散に依存します。</p></div><div><h4 class="font-medium text-amber-400 mb-1">金の購入方法は？</h4><p class="text-slate-300">金は様々な方法で購入できます：販売業者からの現物の地金やコイン、証券取引所での金ETF、商品市場での金先物、または金鉱会社の株式。</p></div><div><h4 class="font-medium text-amber-400 mb-1">金価格に影響を与える要因は？</h4><p class="text-slate-300">主な要因には：米ドルの強さ、インフレ率、中央銀行の政策、地政学的緊張、産業・宝飾品需要、中央銀行の購入が含まれます。</p></div><div><h4 class="font-medium text-amber-400 mb-1">投資としての金と銀の違いは？</h4><p class="text-slate-300">金は一般的により安定しており安全資産として機能しますが、銀はより変動しやすく産業用途が大きいです。金銀比率は、投資家が両金属の相対的価値を比較するのに役立ちます。</p></div></div></div>
         <p class="text-center text-xs text-slate-300 mb-4">60秒ごとに更新 • 情報提供のみ</p>
     </main>
     <footer class="border-t border-slate-700/50 py-6"><div class="max-w-2xl mx-auto px-4 text-center text-sm text-slate-300"><p>© 2026 Gold-Price.app</p></div></footer>

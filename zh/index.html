@@ -12,6 +12,32 @@
     <script src="https://cdn.tailwindcss.com"></script><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script>tailwind.config = { theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'] } } } }</script>
     <style>.metal-card { backdrop-filter: blur(10px); background: rgba(255, 255, 255, 0.03); }.price-up { color: #22c55e; } .price-down { color: #ef4444; }.metal-tab { transition: all 0.2s; } .metal-tab.active { transform: scale(1.02); }.bg-slate-700\/50, .bg-slate-800 { background: rgba(255,255,255,0.05) !important; }.light { background: #f5f5f5 !important; color: #1e293b !important; }.light .metal-card { background: rgba(255,255,255,0.9) !important; }.light .text-slate-300 { color: #64748b !important; }.light .text-white { color: #1e293b !important; }</style>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "今日黄金价格 | 实时金价 | Gold-Price.app",
+        "url": "https://gold-price.app/zh/",
+        "description": "每盎司、克、公斤实时黄金价格及互动图表。",
+        "dateModified": "2026-03-28",
+        "inLanguage": "zh"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {"@type": "Question", "name": "什么是黄金现货价格？", "acceptedAnswer": {"@type": "Answer", "text": "现货价格是黄金可以即时交割买卖的当前市场价格。它由全球商品交易所的交易决定，主要是纽约COMEX和伦敦金银市场。"}},
+            {"@type": "Question", "name": "为什么金价会变动？", "acceptedAnswer": {"@type": "Answer", "text": "金价根据供需关系、通胀预期、利率、汇率波动（特别是美元）以及全球经济和政治不确定性而波动。"}},
+            {"@type": "Question", "name": "什么是金衡盎司？", "acceptedAnswer": {"@type": "Answer", "text": "金衡盎司（31.1035克）是衡量贵金属的标准单位。它比常规盎司（28.35克）略重，在黄金交易中被全球通用。"}},
+            {"@type": "Question", "name": "2026年黄金是好的投资吗？", "acceptedAnswer": {"@type": "Answer", "text": "黄金传统上被认为是对抗通胀和经济不确定性的避险资产。作为投资的适合性取决于您的财务目标、风险承受能力和投资组合多样化程度。"}},
+            {"@type": "Question", "name": "如何购买黄金？", "acceptedAnswer": {"@type": "Answer", "text": "您可以通过多种方式购买黄金：从经销商处购买实物金条和金币、在证券交易所购买黄金ETF、在商品市场购买黄金期货、或购买黄金矿业公司的股票。"}},
+            {"@type": "Question", "name": "哪些因素影响金价？", "acceptedAnswer": {"@type": "Answer", "text": "主要因素包括：美元强弱、通胀率、央行政策、地缘政治紧张局势、工业和珠宝需求以及央行购金。"}},
+            {"@type": "Question", "name": "黄金和白银作为投资有什么区别？", "acceptedAnswer": {"@type": "Answer", "text": "黄金通常更稳定，充当避险资产，而白银波动性更大，工业用途更广。金银比率帮助投资者比较两种金属的相对价值。"}}
+        ]
+    }
+    </script>
 </head>
 <body class="bg-black min-h-screen font-sans text-white">
     <header class="border-b border-slate-700/50"><div class="max-w-2xl mx-auto px-4 py-3 flex items-center justify-between"><div class="flex items-center gap-2"><svg width="28" height="20" viewBox="0 0 28 20"><rect x="2" y="4" width="24" height="12" rx="1" fill="#FFD700"/><rect x="4" y="6" width="20" height="8" rx="1" fill="#FFC107"/></svg><h1 class="text-lg font-bold">Gold-Price.app</h1></div><div class="flex items-center gap-2"><button onclick="toggleTheme()" id="themeToggle" class="p-1.5 rounded-lg bg-slate-800 text-sm">🌙</button>
@@ -28,6 +54,8 @@
         <div class="metal-card rounded-2xl border border-slate-700/50 p-4 mb-4"><h3 class="font-semibold mb-3"><svg width="20" height="14" viewBox="0 0 24 16" class="inline-block"><rect x="1" y="3" width="22" height="10" rx="1" fill="#FFD700"/><rect x="3" y="5" width="18" height="6" rx="1" fill="#FFC107"/></svg> 黄金单位价格</h3><div class="grid grid-cols-3 gap-3"><div class="bg-slate-800/50 rounded-xl p-3 text-center"><div class="text-slate-300 text-xs">每盎司</div><div id="priceOz" class="text-lg font-bold text-amber-400">--</div></div><div class="bg-slate-800/50 rounded-xl p-3 text-center"><div class="text-slate-300 text-xs">每克</div><div id="priceGram" class="text-lg font-bold">--</div></div><div class="bg-slate-800/50 rounded-xl p-3 text-center"><div class="text-slate-300 text-xs">每公斤</div><div id="priceKg" class="text-lg font-bold">--</div></div></div></div>
         <div class="metal-card rounded-2xl border border-slate-700/50 p-4 mb-4"><h3 class="font-semibold mb-3">所有贵金属</h3><div class="space-y-2"><div class="flex items-center justify-between p-2 rounded-lg bg-amber-500/10"><span class="font-medium">黄金</span><div><span id="goldPrice" class="font-bold text-amber-400">--</span><span id="goldChange" class="text-xs ml-2">--</span></div></div><div class="flex items-center justify-between p-2 rounded-lg bg-slate-800/50"><span class="font-medium">白银</span><div><span id="silverPrice" class="font-bold">--</span><span id="silverChange" class="text-xs ml-2">--</span></div></div><div class="flex items-center justify-between p-2 rounded-lg bg-slate-800/50"><span class="font-medium">铂金</span><div><span id="platinumPrice" class="font-bold">--</span><span id="platinumChange" class="text-xs ml-2">--</span></div></div><div class="flex items-center justify-between p-2 rounded-lg bg-slate-800/50"><span class="font-medium">钯金</span><div><span id="palladiumPrice" class="font-bold">--</span><span id="palladiumChange" class="text-xs ml-2">--</span></div></div></div></div>
         <div class="metal-card rounded-2xl border border-slate-700/50 p-4 mb-4"><h3 class="font-semibold mb-3">⚖️ 金银比</h3><div class="flex items-center justify-between"><div><p class="text-slate-300 text-sm">1盎司黄金可购买</p><p id="goldSilverRatio" class="text-2xl font-bold">-- 盎司白银</p></div></div></div>
+                <div class="metal-card rounded-2xl border border-slate-700/50 p-4 mb-4"><h3 class="font-semibold mb-3">关于金价</h3><div class="space-y-3 text-sm text-slate-300"><p>黄金作为价值储存手段已有数千年历史，从古代文明到现代金融市场。其稀缺性、耐久性和普遍吸引力使其成为世界上最重要的贵金属。</p><p>金价受多种因素影响：美元强弱、通胀率、央行政策、地缘政治紧张局势以及全球珠宝和工业需求。世界各国央行将大量黄金储备作为其货币政策的一部分。</p><p>投资者将金价视为全球经济健康的指标。在不确定时期，黄金往往会升值，充当对抗通胀和货币贬值的避险工具。</p></div></div>
+        <div class="metal-card rounded-2xl border border-slate-700/50 p-4 mb-4"><h3 class="font-semibold mb-4">常见问题</h3><div class="space-y-4 text-sm"><div><h4 class="font-medium text-amber-400 mb-1">什么是黄金现货价格？</h4><p class="text-slate-300">现货价格是黄金可以即时交割买卖的当前市场价格。它由全球商品交易所的交易决定，主要是纽约COMEX和伦敦金银市场。</p></div><div><h4 class="font-medium text-amber-400 mb-1">为什么金价会变动？</h4><p class="text-slate-300">金价根据供需关系、通胀预期、利率、汇率波动（特别是美元）以及全球经济和政治不确定性而波动。</p></div><div><h4 class="font-medium text-amber-400 mb-1">什么是金衡盎司？</h4><p class="text-slate-300">金衡盎司（31.1035克）是衡量贵金属的标准单位。它比常规盎司（28.35克）略重，在黄金交易中被全球通用。</p></div><div><h4 class="font-medium text-amber-400 mb-1">2026年黄金是好的投资吗？</h4><p class="text-slate-300">黄金传统上被认为是对抗通胀和经济不确定性的避险资产。作为投资的适合性取决于您的财务目标、风险承受能力和投资组合多样化程度。</p></div><div><h4 class="font-medium text-amber-400 mb-1">如何购买黄金？</h4><p class="text-slate-300">您可以通过多种方式购买黄金：从经销商处购买实物金条和金币、在证券交易所购买黄金ETF、在商品市场购买黄金期货、或购买黄金矿业公司的股票。</p></div><div><h4 class="font-medium text-amber-400 mb-1">哪些因素影响金价？</h4><p class="text-slate-300">主要因素包括：美元强弱、通胀率、央行政策、地缘政治紧张局势、工业和珠宝需求以及央行购金。</p></div><div><h4 class="font-medium text-amber-400 mb-1">黄金和白银作为投资有什么区别？</h4><p class="text-slate-300">黄金通常更稳定，充当避险资产，而白银波动性更大，工业用途更广。金银比率帮助投资者比较两种金属的相对价值。</p></div></div></div>
         <p class="text-center text-xs text-slate-300 mb-4">每60秒更新 • 仅供参考</p>
     </main>
     <footer class="border-t border-slate-700/50 py-6"><div class="max-w-2xl mx-auto px-4 text-center text-sm text-slate-300"><p>© 2026 Gold-Price.app</p></div></footer>
