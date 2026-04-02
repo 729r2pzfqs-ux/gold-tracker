@@ -7,50 +7,62 @@ const OZ_PER_KG = 32.1507;
 const i18n = {
     en: {
         gold: 'Gold', silver: 'Silver', platinum: 'Platinum', palladium: 'Palladium',
+        pricePerUnit: 'Price Per Unit',
         calculator: 'Calculator', updated: 'Updated every 60s • Data for informational purposes'
     },
     de: {
         gold: 'Gold', silver: 'Silber', platinum: 'Platin', palladium: 'Palladium',
+        pricePerUnit: 'Preis pro Einheit',
         calculator: 'Rechner', updated: 'Alle 60s aktualisiert • Nur zu Informationszwecken'
     },
     es: {
         gold: 'Oro', silver: 'Plata', platinum: 'Platino', palladium: 'Paladio',
+        pricePerUnit: 'Precio por Unidad',
         calculator: 'Calculadora', updated: 'Actualizado cada 60s • Datos solo informativos'
     },
     fr: {
         gold: 'Or', silver: 'Argent', platinum: 'Platine', palladium: 'Palladium',
+        pricePerUnit: 'Prix par Unité',
         calculator: 'Calculatrice', updated: 'Mise à jour toutes les 60s • Données informatives'
     },
     it: {
         gold: 'Oro', silver: 'Argento', platinum: 'Platino', palladium: 'Palladio',
+        pricePerUnit: 'Prezzo per Unità',
         calculator: 'Calcolatrice', updated: 'Aggiornato ogni 60s • Dati solo informativi'
     },
     pt: {
         gold: 'Ouro', silver: 'Prata', platinum: 'Platina', palladium: 'Paládio',
+        pricePerUnit: 'Preço por Unidade',
         calculator: 'Calculadora', updated: 'Atualizado a cada 60s • Dados informativos'
     },
     zh: {
         gold: '黄金', silver: '白银', platinum: '铂金', palladium: '钯金',
+        pricePerUnit: '每单位价格',
         calculator: '计算器', updated: '每60秒更新 • 仅供参考'
     },
     ja: {
         gold: '金', silver: '銀', platinum: 'プラチナ', palladium: 'パラジウム',
+        pricePerUnit: '単位あたりの価格',
         calculator: '計算機', updated: '60秒ごとに更新 • 情報提供のみ'
     },
     hi: {
         gold: 'सोना', silver: 'चांदी', platinum: 'प्लैटिनम', palladium: 'पैलेडियम',
+        pricePerUnit: 'प्रति इकाई मूल्य',
         calculator: 'कैलकुलेटर', updated: 'हर 60 सेकंड में अपडेट • केवल सूचना के लिए'
     },
     tr: {
         gold: 'Altın', silver: 'Gümüş', platinum: 'Platin', palladium: 'Paladyum',
+        pricePerUnit: 'Birim Başına Fiyat',
         calculator: 'Hesap Makinesi', updated: 'Her 60 saniyede güncellenir • Bilgi amaçlı'
     },
     ru: {
         gold: 'Золото', silver: 'Серебро', platinum: 'Платина', palladium: 'Палладий',
+        pricePerUnit: 'Цена за единицу',
         calculator: 'Калькулятор', updated: 'Обновляется каждые 60с • Только для информации'
     },
     ms: {
         gold: 'Emas', silver: 'Perak', platinum: 'Platinum', palladium: 'Paladium',
+        pricePerUnit: 'Harga Per Unit',
         calculator: 'Kalkulator', updated: 'Dikemas kini setiap 60s • Data untuk maklumat sahaja'
     }
 };
@@ -137,12 +149,12 @@ async function fetchPrices() {
 
 function selectMetal(metal) {
     selectedMetal = metal;
-    
+
 
     // Update the unit heading to show the selected metal
     const unitHeading = document.getElementById("unitHeading");
     if (unitHeading) {
-        unitHeading.textContent = `${t(metal)} Price Per Unit`;
+        unitHeading.textContent = t(metal) + ' ' + t('pricePerUnit');
     }
     // Update tabs
     ['gold', 'silver', 'platinum', 'palladium'].forEach(m => {
