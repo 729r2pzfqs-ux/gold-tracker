@@ -22,7 +22,7 @@ const i18n = {
         calculator: 'Calculatrice', updated: 'Mise à jour toutes les 60s • Données informatives'
     },
     it: {
-        gold: 'Oro', silver: 'Argento', platinum: 'Platino', palladium: 'Paladio',
+        gold: 'Oro', silver: 'Argento', platinum: 'Platino', palladium: 'Palladio',
         calculator: 'Calcolatrice', updated: 'Aggiornato ogni 60s • Dati solo informativi'
     },
     pt: {
@@ -138,6 +138,12 @@ async function fetchPrices() {
 function selectMetal(metal) {
     selectedMetal = metal;
     
+
+    // Update the unit heading to show the selected metal
+    const unitHeading = document.getElementById("unitHeading");
+    if (unitHeading) {
+        unitHeading.textContent = `${t(metal)} Price Per Unit`;
+    }
     // Update tabs
     ['gold', 'silver', 'platinum', 'palladium'].forEach(m => {
         const tab = document.getElementById(`tab-${m}`);
@@ -149,12 +155,6 @@ function selectMetal(metal) {
             tab.className = 'metal-tab flex-1 py-3 px-4 rounded-xl bg-slate-700/50 border-2 border-transparent';
         }
     });
-    
-    // Update the unit heading to show the selected metal
-    const unitHeading = document.getElementById('unitHeading');
-    if (unitHeading) {
-        unitHeading.textContent = `${t(metal)} Price Per Unit`;
-    }
     
     updateUI();
     loadTradingViewChart();
