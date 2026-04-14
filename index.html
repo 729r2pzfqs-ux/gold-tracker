@@ -1,14 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) - placeholder -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S9LVTMEGC8"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-S9LVTMEGC8');
-    </script>
+    <!-- GA loaded conditionally after cookie consent -->
     <meta charset="UTF-8">
     <meta name="google-site-verification" content="vXgwsltZ810RWuPJ-xDOVyQfYw6jmsi6hRBU618hfW8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -364,7 +357,12 @@
     <footer class="border-t border-slate-700/50 py-6">
         <div class="max-w-2xl mx-auto px-4 text-center text-sm text-slate-300">
             <p>© 2026 Gold-Price.app</p>
-            <p class="mt-1 text-xs">Live gold prices from global markets</p>
+            <p class="mt-2 text-xs">
+                <a href="/privacy.html" class="hover:text-amber-400">Privacy Policy</a> ·
+                <a href="/terms.html" class="hover:text-amber-400">Terms</a> ·
+                <a href="/disclaimer.html" class="hover:text-amber-400">Disclaimer</a>
+            </p>
+            <p class="mt-2 text-xs">Live gold prices from global markets</p>
         </div>
     </footer>
 
@@ -372,5 +370,18 @@
     <script>window.pageLang = 'en';</script>
     <script src="app.js"></script>
     <script>document.getElementById("langBtn")?.addEventListener("click",function(e){e.stopPropagation();document.getElementById("langMenu").classList.toggle("hidden")});document.addEventListener("click",function(){document.getElementById("langMenu")?.classList.add("hidden")});</script>
+<!-- Cookie Consent Banner -->
+<div id="cookie-consent" style="display:none;position:fixed;bottom:0;left:0;right:0;background:rgba(15,23,42,0.95);color:#f1f5f9;padding:1rem;z-index:10000;font-size:0.9rem;text-align:center;border-top:1px solid rgba(251,191,36,0.3);">
+We use cookies for analytics to improve your experience. By clicking Accept, you consent to our use of cookies. See our <a href="/privacy.html" style="color:#fbbf24;text-decoration:underline;">Privacy Policy</a>.
+<button onclick="acceptCookies()" style="margin-left:1rem;padding:0.4rem 1.2rem;background:#f59e0b;color:#0f172a;border:none;border-radius:6px;cursor:pointer;font-size:0.85rem;font-weight:600;">Accept</button>
+<button onclick="declineCookies()" style="margin-left:0.5rem;padding:0.4rem 1.2rem;background:#475569;color:#fff;border:none;border-radius:6px;cursor:pointer;font-size:0.85rem;">Decline</button>
+</div>
+<script>
+function loadGA(){var s=document.createElement('script');s.src='https://www.googletagmanager.com/gtag/js?id=G-S9LVTMEGC8';s.async=true;document.head.appendChild(s);s.onload=function(){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-S9LVTMEGC8');};}
+function acceptCookies(){localStorage.setItem('gp-consent','granted');document.getElementById('cookie-consent').style.display='none';loadGA();}
+function declineCookies(){localStorage.setItem('gp-consent','denied');document.getElementById('cookie-consent').style.display='none';}
+(function(){var c=localStorage.getItem('gp-consent');if(c==='granted'){loadGA();}else if(c!=='denied'){document.getElementById('cookie-consent').style.display='block';}})();
+</script>
+
 </body>
 </html>

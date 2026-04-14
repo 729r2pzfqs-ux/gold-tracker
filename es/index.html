@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S9LVTMEGC8"></script>
-    <script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-S9LVTMEGC8');</script>
-    <meta charset="UTF-8">
+    <!-- GA loaded conditionally after cookie consent -->
+<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="alternate" hreflang="x-default" href="https://gold-price.app/">
     <link rel="alternate" hreflang="en" href="https://gold-price.app/">
@@ -76,10 +75,27 @@
         <div class="metal-card rounded-2xl border border-slate-700/50 p-4 mb-4"><h3 class="font-semibold mb-4">Preguntas Frecuentes</h3><div class="space-y-4 text-sm"><div><h4 class="font-medium text-amber-400 mb-1">¿Qué es el precio spot del oro?</h4><p class="text-slate-300">El precio spot es el precio de mercado actual al que se puede comprar o vender oro para entrega inmediata. Se determina por las operaciones en bolsas de materias primas en todo el mundo, principalmente en el COMEX de Nueva York y el London Bullion Market.</p></div><div><h4 class="font-medium text-amber-400 mb-1">¿Por qué cambia el precio del oro?</h4><p class="text-slate-300">Los precios del oro fluctúan según la oferta y demanda, expectativas de inflación, tasas de interés, movimientos de divisas (especialmente el dólar estadounidense) e incertidumbre económica y política global.</p></div><div><h4 class="font-medium text-amber-400 mb-1">¿Qué es una onza troy?</h4><p class="text-slate-300">Una onza troy (31,1035 gramos) es la unidad estándar para medir metales preciosos. Es ligeramente más pesada que una onza regular (28,35 gramos) y se usa universalmente en el comercio de oro.</p></div><div><h4 class="font-medium text-amber-400 mb-1">¿Es el oro una buena inversión en 2026?</h4><p class="text-slate-300">El oro se considera tradicionalmente un refugio seguro contra la inflación y la incertidumbre económica. Su idoneidad como inversión depende de sus objetivos financieros, tolerancia al riesgo y la diversificación de su cartera.</p></div><div><h4 class="font-medium text-amber-400 mb-1">¿Cómo puedo comprar oro?</h4><p class="text-slate-300">Puede comprar oro de varias formas: lingotes y monedas físicas a través de distribuidores, ETFs de oro en bolsas de valores, futuros de oro en mercados de materias primas, o acciones de empresas mineras de oro.</p></div><div><h4 class="font-medium text-amber-400 mb-1">¿Qué factores afectan el precio del oro?</h4><p class="text-slate-300">Los principales factores incluyen: la fortaleza del dólar estadounidense, las tasas de inflación, las políticas de los bancos centrales, las tensiones geopolíticas, la demanda de joyería industrial y las compras de los bancos centrales.</p></div><div><h4 class="font-medium text-amber-400 mb-1">¿Cuál es la diferencia entre oro y plata como inversión?</h4><p class="text-slate-300">El oro suele ser más estable y actúa como refugio seguro, mientras que la plata es más volátil y tiene mayor uso industrial. El ratio oro/plata ayuda a los inversores a comparar el valor relativo de ambos metales.</p></div></div></div>
         <p class="text-center text-xs text-slate-300 mb-4">Actualizado cada 60s • Datos solo informativos</p>
     </main>
-    <footer class="border-t border-slate-700/50 py-6"><div class="max-w-2xl mx-auto px-4 text-center text-sm text-slate-300"><p>© 2026 Gold-Price.app</p><p class="mt-1 text-xs">Precios del oro en vivo de mercados globales</p></div></footer>
+    <footer class="border-t border-slate-700/50 py-6"><div class="max-w-2xl mx-auto px-4 text-center text-sm text-slate-300"><p>© 2026 Gold-Price.app</p>
+            <p class="mt-2 text-xs">
+                <a href="/privacy.html" class="hover:text-amber-400">Privacidad</a> ·
+                <a href="/terms.html" class="hover:text-amber-400">Términos</a> ·
+                <a href="/disclaimer.html" class="hover:text-amber-400">Aviso Legal</a>
+            </p><p class="mt-1 text-xs">Precios del oro en vivo de mercados globales</p></div></footer>
     <script>window.pageLang = 'es';</script>
     <script src="../app.js"></script>
     <script>document.getElementById("langBtn")?.addEventListener("click",function(e){e.stopPropagation();document.getElementById("langMenu").classList.toggle("hidden")});document.addEventListener("click",function(){document.getElementById("langMenu")?.classList.add("hidden")});</script>
     
+<!-- Cookie Consent Banner -->
+<div id="cookie-consent" style="display:none;position:fixed;bottom:0;left:0;right:0;background:rgba(15,23,42,0.95);color:#f1f5f9;padding:1rem;z-index:10000;font-size:0.9rem;text-align:center;border-top:1px solid rgba(251,191,36,0.3);">
+Utilizamos cookies para análisis y mejorar tu experiencia. Al hacer clic en Aceptar, consientes nuestro uso de cookies. Consulta nuestra <a href="/privacy.html" style="color:#fbbf24;text-decoration:underline;">Política de Privacidad</a>.
+<button onclick="acceptCookies()" style="margin-left:1rem;padding:0.4rem 1.2rem;background:#f59e0b;color:#0f172a;border:none;border-radius:6px;cursor:pointer;font-size:0.85rem;font-weight:600;">Aceptar</button>
+<button onclick="declineCookies()" style="margin-left:0.5rem;padding:0.4rem 1.2rem;background:#475569;color:#fff;border:none;border-radius:6px;cursor:pointer;font-size:0.85rem;">Rechazar</button>
+</div>
+<script>
+function loadGA(){var s=document.createElement('script');s.src='https://www.googletagmanager.com/gtag/js?id=G-S9LVTMEGC8';s.async=true;document.head.appendChild(s);s.onload=function(){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-S9LVTMEGC8');};}
+function acceptCookies(){localStorage.setItem('gp-consent','granted');document.getElementById('cookie-consent').style.display='none';loadGA();}
+function declineCookies(){localStorage.setItem('gp-consent','denied');document.getElementById('cookie-consent').style.display='none';}
+(function(){var c=localStorage.getItem('gp-consent');if(c==='granted'){loadGA();}else if(c!=='denied'){document.getElementById('cookie-consent').style.display='block';}})();
+</script>
 </body>
 </html>

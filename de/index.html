@@ -1,14 +1,8 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S9LVTMEGC8"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-S9LVTMEGC8');
-    </script>
-    <meta charset="UTF-8">
+    <!-- GA loaded conditionally after cookie consent -->
+<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- Hreflang -->
@@ -162,11 +156,28 @@
     <footer class="border-t border-slate-700/50 py-6">
         <div class="max-w-2xl mx-auto px-4 text-center text-sm text-slate-300">
             <p>© 2026 Gold-Price.app</p>
+            <p class="mt-2 text-xs">
+                <a href="/privacy.html" class="hover:text-amber-400">Datenschutz</a> ·
+                <a href="/terms.html" class="hover:text-amber-400">Nutzungsbedingungen</a> ·
+                <a href="/disclaimer.html" class="hover:text-amber-400">Haftungsausschluss</a>
+            </p>
             <p class="mt-1 text-xs">Live Goldpreise von globalen Märkten</p>
         </div>
     </footer>
     <script>window.pageLang = 'de';</script>
     <script src="../app.js"></script>
     <script>document.getElementById("langBtn")?.addEventListener("click",function(e){e.stopPropagation();document.getElementById("langMenu").classList.toggle("hidden")});document.addEventListener("click",function(){document.getElementById("langMenu")?.classList.add("hidden")});</script>
+<!-- Cookie Consent Banner -->
+<div id="cookie-consent" style="display:none;position:fixed;bottom:0;left:0;right:0;background:rgba(15,23,42,0.95);color:#f1f5f9;padding:1rem;z-index:10000;font-size:0.9rem;text-align:center;border-top:1px solid rgba(251,191,36,0.3);">
+Wir verwenden Cookies für Analysen, um Ihr Erlebnis zu verbessern. Durch Klicken auf „Akzeptieren" stimmen Sie unserer Nutzung von Cookies zu. Siehe unsere <a href="/privacy.html" style="color:#fbbf24;text-decoration:underline;">Datenschutzerklärung</a>.
+<button onclick="acceptCookies()" style="margin-left:1rem;padding:0.4rem 1.2rem;background:#f59e0b;color:#0f172a;border:none;border-radius:6px;cursor:pointer;font-size:0.85rem;font-weight:600;">Akzeptieren</button>
+<button onclick="declineCookies()" style="margin-left:0.5rem;padding:0.4rem 1.2rem;background:#475569;color:#fff;border:none;border-radius:6px;cursor:pointer;font-size:0.85rem;">Ablehnen</button>
+</div>
+<script>
+function loadGA(){var s=document.createElement('script');s.src='https://www.googletagmanager.com/gtag/js?id=G-S9LVTMEGC8';s.async=true;document.head.appendChild(s);s.onload=function(){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-S9LVTMEGC8');};}
+function acceptCookies(){localStorage.setItem('gp-consent','granted');document.getElementById('cookie-consent').style.display='none';loadGA();}
+function declineCookies(){localStorage.setItem('gp-consent','denied');document.getElementById('cookie-consent').style.display='none';}
+(function(){var c=localStorage.getItem('gp-consent');if(c==='granted'){loadGA();}else if(c!=='denied'){document.getElementById('cookie-consent').style.display='block';}})();
+</script>
 </body>
 </html>
