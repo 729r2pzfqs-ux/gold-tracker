@@ -257,18 +257,44 @@ let isDark = true;
 function loadTradingViewChart() {
     const container = document.getElementById('tradingview-widget');
     if (!container) return;
-    
+
     const config = metalConfig[selectedMetal];
     const theme = isDark ? 'dark' : 'light';
-    
-    container.innerHTML = `<iframe 
-        title="${config.name} price chart from TradingView"
-        src="https://www.tradingview.com/widgetembed/?symbol=${config.tvSymbol}&interval=60&hidesidetoolbar=0&symboledit=0&saveimage=0&toolbarbg=000000&studies=[]&theme=${theme}&style=1&timezone=Etc%2FUTC&withdateranges=1&hideideas=1&studies_overrides={}&overrides={}&enabled_features=[]&disabled_features=[]&locale=en"
-        style="width:100%;height:100%;border:none;"
-        allowtransparency="true"
-        frameborder="0"
-        allowfullscreen
-    ></iframe>`;
+    const lang = currentLang || 'en';
+
+    // Use TradingView advanced chart embed widget (replaces deprecated widgetembed)
+    container.innerHTML = '';
+    const widgetDiv = document.createElement('div');
+    widgetDiv.className = 'tradingview-widget-container';
+    widgetDiv.style.height = '100%';
+    widgetDiv.style.width = '100%';
+
+    const innerDiv = document.createElement('div');
+    innerDiv.className = 'tradingview-widget-container__widget';
+    innerDiv.style.height = '100%';
+    innerDiv.style.width = '100%';
+    widgetDiv.appendChild(innerDiv);
+
+    const script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js';
+    script.async = true;
+    script.textContent = JSON.stringify({
+        "autosize": true,
+        "symbol": config.tvSymbol,
+        "interval": "60",
+        "timezone": "Etc/UTC",
+        "theme": theme,
+        "style": "1",
+        "locale": lang,
+        "hide_side_toolbar": false,
+        "allow_symbol_change": false,
+        "save_image": false,
+        "calendar": false,
+        "support_host": "https://www.tradingview.com"
+    });
+    widgetDiv.appendChild(script);
+    container.appendChild(widgetDiv);
 }
 
 // Calculator
