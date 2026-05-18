@@ -123,17 +123,7 @@
     <link rel="stylesheet" href="tailwind.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
+    
     <style>
         .metal-card { backdrop-filter: blur(10px); background: rgba(255, 255, 255, 0.03); border-color: rgba(255,255,255,0.1) !important; }
         .price-up { color: #22c55e; }
@@ -163,22 +153,22 @@
                 <h1 class="text-lg font-bold">Gold-Price.app</h1>
             </div>
             <div class="flex items-center gap-2">
-                <button onclick="toggleTheme()" id="themeToggle" class="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-sm">ð</button>
+                <button onclick="toggleTheme()" id="themeToggle" class="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-sm">Ã°ÂÂÂ</button>
                 <div class="lang-dropdown relative">
-                    <button id="langBtn" aria-label="Select language" class="bg-slate-800 border border-slate-700 rounded-lg px-2 py-1 text-xs flex items-center gap-1">ð¬ð§ EN <span class="text-xs">â¼</span></button>
+                    <button id="langBtn" aria-label="Select language" class="bg-slate-800 border border-slate-700 rounded-lg px-2 py-1 text-xs flex items-center gap-1">Ã°ÂÂÂ¬Ã°ÂÂÂ§ EN <span class="text-xs">Ã¢ÂÂ¼</span></button>
                     <div id="langMenu" class="hidden absolute right-0 mt-1 bg-slate-800 border border-slate-700 rounded-lg py-1 z-50 min-w-[80px]">
-                        <a href="/" class="block px-3 py-1 text-xs bg-slate-700">ð¬ð§ EN</a>
-                        <a href="/de/" class="block px-3 py-1 text-xs hover:bg-slate-700">ð©ðª DE</a>
-                        <a href="/es/" class="block px-3 py-1 text-xs hover:bg-slate-700">ðªð¸ ES</a>
-                        <a href="/fr/" class="block px-3 py-1 text-xs hover:bg-slate-700">ð«ð· FR</a>
-                        <a href="/it/" class="block px-3 py-1 text-xs hover:bg-slate-700">ð®ð¹ IT</a>
-                        <a href="/pt/" class="block px-3 py-1 text-xs hover:bg-slate-700">ð§ð· PT</a>
-                        <a href="/zh/" class="block px-3 py-1 text-xs hover:bg-slate-700">ð¨ð³ ZH</a>
-                        <a href="/ja/" class="block px-3 py-1 text-xs hover:bg-slate-700">ð¯ðµ JA</a>
-                        <a href="/hi/" class="block px-3 py-1 text-xs hover:bg-slate-700">ð®ð³ HI</a>
-                        <a href="/ru/" class="block px-3 py-1 text-xs hover:bg-slate-700">ð·ðº RU</a>
-                        <a href="/tr/" class="block px-3 py-1 text-xs hover:bg-slate-700">ð¹ð· TR</a>
-                        <a href="/ms/" class="block px-3 py-1 text-xs hover:bg-slate-700">ð²ð¾ MS</a>
+                        <a href="/" class="block px-3 py-1 text-xs bg-slate-700">Ã°ÂÂÂ¬Ã°ÂÂÂ§ EN</a>
+                        <a href="/de/" class="block px-3 py-1 text-xs hover:bg-slate-700">Ã°ÂÂÂ©Ã°ÂÂÂª DE</a>
+                        <a href="/es/" class="block px-3 py-1 text-xs hover:bg-slate-700">Ã°ÂÂÂªÃ°ÂÂÂ¸ ES</a>
+                        <a href="/fr/" class="block px-3 py-1 text-xs hover:bg-slate-700">Ã°ÂÂÂ«Ã°ÂÂÂ· FR</a>
+                        <a href="/it/" class="block px-3 py-1 text-xs hover:bg-slate-700">Ã°ÂÂÂ®Ã°ÂÂÂ¹ IT</a>
+                        <a href="/pt/" class="block px-3 py-1 text-xs hover:bg-slate-700">Ã°ÂÂÂ§Ã°ÂÂÂ· PT</a>
+                        <a href="/zh/" class="block px-3 py-1 text-xs hover:bg-slate-700">Ã°ÂÂÂ¨Ã°ÂÂÂ³ ZH</a>
+                        <a href="/ja/" class="block px-3 py-1 text-xs hover:bg-slate-700">Ã°ÂÂÂ¯Ã°ÂÂÂµ JA</a>
+                        <a href="/hi/" class="block px-3 py-1 text-xs hover:bg-slate-700">Ã°ÂÂÂ®Ã°ÂÂÂ³ HI</a>
+                        <a href="/ru/" class="block px-3 py-1 text-xs hover:bg-slate-700">Ã°ÂÂÂ·Ã°ÂÂÂº RU</a>
+                        <a href="/tr/" class="block px-3 py-1 text-xs hover:bg-slate-700">Ã°ÂÂÂ¹Ã°ÂÂÂ· TR</a>
+                        <a href="/ms/" class="block px-3 py-1 text-xs hover:bg-slate-700">Ã°ÂÂÂ²Ã°ÂÂÂ¾ MS</a>
                     </div>
                 </div>
                 <select id="currency" aria-label="Select currency" class="bg-slate-800 border border-slate-700 rounded-lg px-1.5 py-1 text-xs">
@@ -316,7 +306,7 @@
         <!-- Gold/Silver Ratio -->
         <div class="metal-card rounded-2xl border border-slate-700/50 p-4 mb-4">
             <h3 class="font-semibold mb-3 flex items-center gap-2">
-                <span>âï¸</span> Gold/Silver Ratio
+                <span>Ã¢ÂÂÃ¯Â¸Â</span> Gold/Silver Ratio
             </h3>
             <div class="flex items-center justify-between">
                 <div>
@@ -350,16 +340,16 @@
         </div>
 
         <!-- Footer note -->
-        <p class="text-center text-xs text-slate-300 mb-4">Updated every 60s â¢ Data for informational purposes only</p>
+        <p class="text-center text-xs text-slate-300 mb-4">Updated every 60s Ã¢ÂÂ¢ Data for informational purposes only</p>
     </main>
 
     <!-- Footer -->
     <footer class="border-t border-slate-700/50 py-6">
         <div class="max-w-2xl mx-auto px-4 text-center text-sm text-slate-300">
-            <p>Â© 2026 Gold-Price.app</p>
+            <p>ÃÂ© 2026 Gold-Price.app</p>
             <p class="mt-2 text-xs">
-                <a href="/privacy.html" class="hover:text-amber-400">Privacy Policy</a> Â·
-                <a href="/terms.html" class="hover:text-amber-400">Terms</a> Â·
+                <a href="/privacy.html" class="hover:text-amber-400">Privacy Policy</a> ÃÂ·
+                <a href="/terms.html" class="hover:text-amber-400">Terms</a> ÃÂ·
                 <a href="/disclaimer.html" class="hover:text-amber-400">Disclaimer</a>
             </p>
             <p class="mt-2 text-xs">Live gold prices from global markets</p>
