@@ -1,0 +1,7 @@
+# gold-price.app
+
+## About
+Gold-Price.app provides live gold prices in multiple currencies. Real-time spot prices, historical charts, and price tracking for gold, silver, platinum, and palladium.
+
+## URLs
+- Homepage: https://gold-price.app/
