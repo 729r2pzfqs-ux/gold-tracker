@@ -1,7 +1,56 @@
 # gold-price.app
 
+> Live gold, silver, platinum, and palladium spot prices in multiple currencies, with interactive charts and unit conversions.
+
 ## About
 Gold-Price.app provides live gold prices in multiple currencies. Real-time spot prices, historical charts, and price tracking for gold, silver, platinum, and palladium.
 
-## URLs
-- Homepage: https://gold-price.app/
+## Features / Content
+- Live spot prices updated approximately every 60 seconds
+- Precious metals covered: Gold (XAU), Silver (XAG), Platinum (XPT), Palladium (XPD)
+- Prices per troy ounce, per gram, and per kilo
+- Supported currencies: USD, EUR, GBP, CNY, INR, AUD, CAD, MYR
+- Price change and percentage change displayed for each metal
+- Interactive TradingView charts for each metal
+- Gold/Silver ratio indicator
+- Value calculator (enter an amount in oz, grams, or kilos to get its worth)
+- Light and dark theme
+- Installable as a PWA (Progressive Web App)
+
+## Sections
+- [Homepage](https://gold-price.app/): Live prices, charts, unit converter, and metal selector
+- [Disclaimer](https://gold-price.app/disclaimer.html): Financial disclaimer — informational use only
+- [Privacy Policy](https://gold-price.app/privacy.html): Privacy policy
+- [Terms](https://gold-price.app/terms.html): Terms of use
+
+## URL Patterns
+- English (default): https://gold-price.app/
+- Localized versions use a language-code prefix: https://gold-price.app/{lang}/
+  - Examples: /de/, /es/, /fr/, /it/, /pt/, /zh/, /ja/, /hi/, /ru/, /tr/, /ms/
+- Legal pages live at the root: /disclaimer.html, /privacy.html, /terms.html
+
+## Data Sources
+- Precious metal spot prices: Kitco (https://proxy.kitco.com/getPM) for gold (AU), silver (AG), platinum (PT), palladium (PD); refreshed approximately every 60 seconds
+- Currency exchange rates: exchangerate-api.com (https://api.exchangerate-api.com/v4/latest/USD)
+- Charts: TradingView advanced chart embed widget (TVC:GOLD, TVC:SILVER, TVC:PLATINUM, TVC:PALLADIUM)
+
+## Languages
+- English (en) — default
+- German (de)
+- Spanish (es)
+- French (fr)
+- Italian (it)
+- Portuguese (pt)
+- Chinese (zh)
+- Japanese (ja)
+- Hindi (hi)
+- Russian (ru)
+- Turkish (tr)
+- Malay (ms)
+
+## Notes
+- This is a static site hosted on GitHub Pages
+- All content and prices are provided for general informational purposes only and do not constitute financial, investment, legal, or tax advice
+- Prices are sourced from third-party providers, may be delayed, and may differ from actual transaction prices
+- Gold-Price.app is not a licensed financial advisor, broker, dealer, or investment firm
+- Not affiliated with Kitco, TradingView, or any exchange
