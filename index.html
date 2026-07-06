@@ -36,11 +36,13 @@
     <meta property="og:url" content="https://gold-price.app/">
     <meta property="og:site_name" content="Gold-Price.app">
     <meta property="og:locale" content="en_US">
+    <meta property="og:image" content="https://gold-price.app/favicon-512.png">
     
     <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Live Gold Price Today">
     <meta name="twitter:description" content="Real-time gold price per ounce, gram & kilo. Live spot prices and charts.">
+    <meta name="twitter:image" content="https://gold-price.app/favicon-512.png">
     
     <!-- PWA & Mobile -->
     <meta name="theme-color" content="#FFD700">
@@ -179,13 +181,7 @@
                     </div>
                 </div>
                 <select id="currency" aria-label="Select currency" class="bg-slate-800 border border-slate-700 rounded-lg px-1.5 py-1 text-xs">
-                    <option value="USD">USD</option>
-                    <option value="EUR">EUR</option>
-                    <option value="CNY">CNY</option>
-                    <option value="INR">INR</option>
-                    <option value="GBP">GBP</option>
-                    <option value="AUD">AUD</option>
-                    <option value="CAD">CAD</option>
+                    <option value="USD">USD</option><option value="EUR">EUR</option><option value="GBP">GBP</option><option value="CNY">CNY</option><option value="INR">INR</option><option value="MYR">MYR</option><option value="AUD">AUD</option><option value="CAD">CAD</option>
                 </select>
             </div>
         </div>
@@ -347,7 +343,9 @@
         </div>
 
         <!-- Footer note -->
-        <p class="text-center text-xs text-slate-300 mb-4">Updated every 60s • Data for informational purposes only</p>
+        <div class="metal-card rounded-2xl border border-slate-700/50 p-4 mb-4"><h3 class="font-semibold mb-3" data-i18n="calculator">Calculator</h3><div class="grid grid-cols-3 gap-3 items-center"><input id="calcAmount" type="number" min="0" value="1" aria-label="Amount" class="bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 text-sm w-full"><select id="calcUnit" aria-label="Unit" class="bg-slate-800 border border-slate-700 rounded-lg px-2 py-2 text-sm w-full"><option value="oz">oz</option><option value="gram">g</option><option value="kg">kg</option></select><div id="calcResult" class="text-lg font-bold text-amber-400 text-right">--</div></div></div>
+
+        <p id="updatedNote" class="text-center text-xs text-slate-300 mb-4">Updated every 60s • Data for informational purposes only</p>
     </main>
 
     <!-- Footer -->
@@ -365,7 +363,7 @@
 
     <!-- TradingView Widget Script -->
     <script>window.pageLang = 'en';</script>
-    <script src="app.js?v=2"></script>
+    <script src="app.js?v=3"></script>
     <script>document.getElementById("langBtn")?.addEventListener("click",function(e){e.stopPropagation();document.getElementById("langMenu").classList.toggle("hidden")});document.addEventListener("click",function(){document.getElementById("langMenu")?.classList.add("hidden")});</script>
 </body>
 </html>

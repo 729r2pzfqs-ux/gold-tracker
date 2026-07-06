@@ -104,16 +104,16 @@ function applyTranslations() {
         el.textContent = t(key);
     });
     
-    // Footer
-    const footerP = document.querySelector('footer p');
-    if (footerP) footerP.textContent = t('updated');
+    // "Updated every 60s" note
+    const updatedNote = document.getElementById('updatedNote');
+    if (updatedNote) updatedNote.textContent = t('updated');
     
     // Update metal name if needed
     if (prices[selectedMetal]) updateUI();
 }
 
 const metalConfig = {
-    gold: { name: 'Gold', code: 'XAU/USD', tvSymbol: 'TVC:GOLD', color: '#FFD700', borderColor: 'border-yellow-500/50', bgColor: 'bg-yellow-500/20' },
+    gold: { name: 'Gold', code: 'XAU/USD', tvSymbol: 'TVC:GOLD', color: '#FFD700', borderColor: 'border-amber-400/50', bgColor: 'bg-amber-500/20' },
     silver: { name: 'Silver', code: 'XAG/USD', tvSymbol: 'TVC:SILVER', color: '#C0C0C0', borderColor: 'border-slate-400/50', bgColor: 'bg-slate-400/20' },
     platinum: { name: 'Platinum', code: 'XPT/USD', tvSymbol: 'TVC:PLATINUM', color: '#60A5FA', borderColor: 'border-blue-400/50', bgColor: 'bg-blue-400/20' },
     palladium: { name: 'Palladium', code: 'XPD/USD', tvSymbol: 'TVC:PALLADIUM', color: '#E2E8F0', borderColor: 'border-slate-300/50', bgColor: 'bg-slate-300/20' }
@@ -144,7 +144,6 @@ async function fetchPrices() {
     }
     
     updateUI();
-    updateLastUpdated();
 }
 
 function selectMetal(metal) {
@@ -162,9 +161,9 @@ function selectMetal(metal) {
         if (!tab) return;
         const config = metalConfig[m];
         if (m === metal) {
-            tab.className = `metal-tab flex-1 py-3 px-4 rounded-xl ${config.bgColor} border-2 ${config.borderColor} active`;
+            tab.className = `metal-tab py-2 px-2 rounded-xl ${config.bgColor} border-2 ${config.borderColor} active`;
         } else {
-            tab.className = 'metal-tab flex-1 py-3 px-4 rounded-xl bg-slate-700/50 border-2 border-transparent';
+            tab.className = 'metal-tab py-2 px-2 rounded-xl bg-slate-700/50 border-2 border-transparent';
         }
     });
     
@@ -244,11 +243,6 @@ function updateUI() {
     }
     
     updateCalculator();
-}
-
-function updateLastUpdated() {
-    const el = document.getElementById('lastUpdate');
-    if (el) el.textContent = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
 }
 
 // TradingView Chart
@@ -347,15 +341,6 @@ if (currencyEl) {
     });
 }
 
-const langEl = document.getElementById('language');
-if (langEl) {
-    langEl.addEventListener('change', e => { 
-        currentLang = e.target.value; 
-        localStorage.setItem('lang', currentLang);
-        applyTranslations();
-    });
-}
-
 const calcAmountEl = document.getElementById('calcAmount');
 const calcUnitEl = document.getElementById('calcUnit');
 if (calcAmountEl) calcAmountEl.addEventListener('input', updateCalculator);
@@ -374,9 +359,7 @@ function detectLanguage() {
 // Init
 document.addEventListener('DOMContentLoaded', async () => {
     currentLang = detectLanguage();
-    const langSelect = document.getElementById('language');
-    if (langSelect) langSelect.value = currentLang;
-    
+
     const savedCurrency = localStorage.getItem('currency');
     if (savedCurrency) {
         currentCurrency = savedCurrency;
@@ -391,6 +374,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (data.rates) {
             currencyRates.EUR = data.rates.EUR || 0.84;
             currencyRates.GBP = data.rates.GBP || 0.73;
+            currencyRates.CNY = data.rates.CNY || 7.25;
             currencyRates.INR = data.rates.INR || 90.74;
             currencyRates.MYR = data.rates.MYR || 3.92;
             currencyRates.AUD = data.rates.AUD || 1.40;
