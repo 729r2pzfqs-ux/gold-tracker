@@ -36,13 +36,17 @@
     <meta property="og:url" content="https://gold-price.app/">
     <meta property="og:site_name" content="Gold-Price.app">
     <meta property="og:locale" content="en_US">
-    <meta property="og:image" content="https://gold-price.app/favicon-512.png">
+    <meta property="og:image" content="https://gold-price.app/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:alt" content="Gold-Price.app — Live Gold Price">
     
     <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary">
+    <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Live Gold Price Today">
     <meta name="twitter:description" content="Real-time gold price per ounce, gram & kilo. Live spot prices and charts.">
-    <meta name="twitter:image" content="https://gold-price.app/favicon-512.png">
+    <meta name="twitter:image" content="https://gold-price.app/og-image.png">
     
     <!-- PWA & Mobile -->
     <meta name="theme-color" content="#FFD700">
@@ -128,7 +132,7 @@
     }
     </script>
     
-    <title>Gold-Price.app - Live Gold Price Today | Spot Price Per Ounce</title>
+    <title>Live Gold Price Today | Spot Price Per Ounce</title>
     <meta name="description" content="Live gold price today. Real-time spot prices per ounce, gram & kilo. Track gold, silver, platinum & palladium with interactive charts.">
     <link rel="icon" href="/favicon.ico" sizes="48x48">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
@@ -138,8 +142,7 @@
     <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="stylesheet" href="tailwind.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/fonts/inter.css">
     
     <style>
         .metal-card { backdrop-filter: blur(10px); background: rgba(255, 255, 255, 0.03); border-color: rgba(255,255,255,0.1) !important; }
@@ -167,7 +170,7 @@
         <div class="max-w-2xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-2">
             <div class="flex items-center gap-2">
                 <svg width="28" height="20" viewBox="0 0 28 20" fill="none"><rect x="2" y="4" width="24" height="12" rx="1" fill="#FFD700"/><rect x="4" y="6" width="20" height="8" rx="1" fill="#FFC107"/><rect x="6" y="8" width="16" height="4" fill="#FFEB3B"/></svg>
-                <h1 class="text-lg font-bold">Gold-Price.app</h1>
+                <span class="text-lg font-bold">Gold-Price.app</span>
             </div>
             <div class="flex items-center gap-2">
                 <button onclick="toggleTheme()" id="themeToggle" class="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-sm">🌙</button>
@@ -195,7 +198,7 @@
         </div>
     </header>
 
-    <main class="max-w-2xl mx-auto px-4 py-4">
+    <main class="max-w-2xl mx-auto px-4 py-4"><h1 class="text-xl font-bold text-center mb-4">Live Gold Price Today</h1>
         <!-- Metal Selector Tabs -->
         <div class="grid grid-cols-4 gap-2 mb-4">
             <button onclick="selectMetal('gold')" id="tab-gold" class="metal-tab py-2 px-2 rounded-xl bg-amber-500/20 border-2 border-amber-400/50 active">
